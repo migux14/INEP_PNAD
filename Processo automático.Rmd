@@ -1,0 +1,1093 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+# Carregando pacotes
+```{r}
+library(PNADcIBGE)
+library(PNADc.table)
+library(survey)
+library(dplyr)
+library(ggplot2)
+library(reshape2)
+library(patchwork)
+library(gridExtra)
+library(readxl)
+library(forcats)
+```
+
+
+```{r}
+pnadc_download(2015,1)
+pnadc_download(2015,2)
+
+pnadc_download(2019,1)
+pnadc_download(2019,2)
+```
+
+
+# 2015
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Creche","Pré-escola","Regular do ensino fundamental","Regular do ensino médio","Superior - graduação", "Mestrado","Doutorado")
+```
+
+#Não rodar estes, estou tentando mudar as classes
+```{r}
+#load(fs::path_home("Design_PNADc_2019_4"))
+design_PNADc <- get_pnadc(2019, interview = 1)
+
+#Método do Cássio
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+```
+
+#Processo automático de tabulação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010,
+  ~V3003A,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Preta","Amarela","Parda","Indígena","Ignorada"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4],tabela[1,5],tabela[1,6], tabela[1,7]),
+    se = c(tabela[1,8],tabela[1,9],tabela[1,10],tabela[1,11],tabela[1,12],tabela[1,13]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],ensino_[j],".csv",sep =""))
+  }
+}
+```
+
+# Tabelas a nível regional
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+   tabela <- survey::svyby(
+  ~V2010,
+  ~V3003A,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A %in% ensino_),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+  
+  write.csv2(tabela, file =
+               paste("data_grafico",UF_interesse[i],".csv",sep =""))
+}
+```
+
+
+# Leitura
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Pré-escola", "Regular do ensino fundamental","Regular do ensino médio")
+
+for (i in 1:length(UF_interesse)) {
+  for (j in 1:length(ensino_)) {
+    
+    base_graf <- read.csv2(
+      file =paste("Tabelas_UF_agregado - 2015/datagrafico", UF_interesse[i],ensino_[j],".csv",sep ="")
+      )
+    
+    base_graf %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = ensino_[j])
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        " - Percentual de Matrículas em ",
+        ensino_[j]," por Raça",
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2015", sep = "")
+      )
+    
+    ggsave(paste("Graf",UF_interesse[i],ensino_[j],".pdf",sep =""))
+  }
+}
+```
+
+# Nível Brasil
+```{r}
+for (i in 1:length(ensino_)) {
+  tabela <- survey::svyby(
+    ~V2010,
+    ~V3003A,
+    design = subset(design_PNADc,V3003A %in% ensino_[i]),
+    FUN = svymean,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE,
+    )
+  
+  dat_graf <- data.frame(
+    raca = c("Branca","Preta","Amarela","Parda","Indígena","Ignorada"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4],tabela[1,5],tabela[1,6], tabela[1,7]),
+    se = c(tabela[1,8],tabela[1,9],tabela[1,10],tabela[1,11],tabela[1,12],tabela[1,13]))
+  
+  write.csv2(dat_graf, file =
+               paste("data_grafico_BR", ensino_[i],".csv",sep =""))
+}
+
+```
+
+#Tabela do total
+```{r}
+load(fs::path_home("Design_PNADc_2019_4"))
+
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Pré-escola","Regular do ensino fundamental","Regular do ensino médio","Superior - graduação", "Mestrado","Doutorado")
+
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010 + UF,
+  ~V3003A,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Preta","Amarela","Parda","Indígena","Ignorada"),
+    total = c(tabela[1,2],tabela[1,3],tabela[1,4],tabela[1,5],tabela[1,6], tabela[1,7]),
+    se = c(tabela[1,8],tabela[1,9],tabela[1,10],tabela[1,11],tabela[1,12],tabela[1,13]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("TOTAL",UF_interesse[i],ensino_[j],".csv",sep =""))
+  }
+}
+```
+
+```{r}
+for (i in 1:length(ensino_)) {
+  tabela <- survey::svyby(
+    ~V2010,
+    ~V3003A,
+    design = subset(design_PNADc,V3003A %in% ensino_[i]),
+    FUN = svytotal,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE,
+    )
+  
+  dat_graf <- data.frame(
+    raca = c("Branca","Preta","Amarela","Parda","Indígena","Ignorada"),
+    total = c(tabela[1,2],tabela[1,3],tabela[1,4],tabela[1,5],tabela[1,6], tabela[1,7]),
+    se = c(tabela[1,8],tabela[1,9],tabela[1,10],tabela[1,11],tabela[1,12],tabela[1,13]))
+  
+  write.csv2(dat_graf, file =
+               paste("data_grafico_BR", ensino_[i],".csv",sep =""))
+}
+```
+
+#Com outro nível de agregação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6],tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],ensino_[j],".csv",sep =""))
+  }
+}
+```
+##TOTAL
+#2019
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Pré-escola","Regular do ensino fundamental","Regular do ensino médio","Superior - graduação", "Mestrado","Doutorado")
+
+load(fs::path_home("Design_PNADc_2015_4"))
+
+#Método do Cássio
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6], tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("TOTAL_",UF_interesse[i],ensino_[j],".csv",sep =""))
+  }
+}
+```
+
+
+##EJA
+#2019_1
+```{r}
+load(fs::path_home("Design_PNADc_2019_1"))
+
+ensino_ <- c("Educação de jovens e adultos (EJA) do ensino fundamental", "Educação de jovens e adultos (EJA) do ensino médio")
+
+V3003A_2 = as.character(design_PNADc$variables$V3003A)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_PNADc$variables$V3003A)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V3003A_2)
+
+design_PNADc$variables$V3003A_2 <- as.factor(design_PNADc$variables$V3003A_2)
+```
+
+```{r}
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+```
+
+
+#Processo automático de tabulação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6],tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],"_EJA-2019_1",".csv",sep =""))
+  }
+}
+```
+
+#2019_2
+```{r}
+load(fs::path_home("Design_PNADc_2019_2"))
+
+ensino_ <- c("Educação de jovens e adultos (EJA) do ensino fundamental", "Educação de jovens e adultos (EJA) do ensino médio")
+
+V3003A_2 = as.character(design_PNADc$variables$V3003A)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_PNADc$variables$V3003A)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V3003A_2)
+
+design_PNADc$variables$V3003A_2 <- as.factor(design_PNADc$variables$V3003A_2)
+```
+
+```{r}
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+```
+
+
+#Processo automático de tabulação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6],tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],"_EJA-2019_2",".csv",sep =""))
+  }
+}
+```
+
+#2016_1
+```{r}
+pnadc_download(2016,1)
+pnadc_download(2016,2)
+```
+```{r}
+load(fs::path_home("Design_PNADc_2016_1"))
+
+ensino_ <- c("Educação de jovens e adultos (EJA) do ensino fundamental", "Educação de jovens e adultos (EJA) do ensino médio")
+
+V3003A_2 = as.character(design_PNADc$variables$V3003A)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_PNADc$variables$V3003A)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V3003A_2)
+
+design_PNADc$variables$V3003A_2 <- as.factor(design_PNADc$variables$V3003A_2)
+```
+
+```{r}
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+```
+
+
+#Processo automático de tabulação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6],tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],"_EJA-2016_1",".csv",sep =""))
+  }
+}
+```
+
+```{r}
+load(fs::path_home("Design_PNADc_2016_2"))
+
+ensino_ <- c("Educação de jovens e adultos (EJA) do ensino fundamental", "Educação de jovens e adultos (EJA) do ensino médio")
+
+V3003A_2 = as.character(design_PNADc$variables$V3003A)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_PNADc$variables$V3003A)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V3003A_2)
+
+design_PNADc$variables$V3003A_2 <- as.factor(design_PNADc$variables$V3003A_2)
+```
+
+```{r}
+V2010_4 = as.character(design_PNADc$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_PNADc$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_PNADc$variables <- bind_cols(design_PNADc$variables, V2010_4)
+
+design_PNADc$variables$V2010_4 <- as.factor(design_PNADc$variables$V2010_4)
+```
+
+
+#Processo automático de tabulação
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+  for (j in 1:length(ensino_)) {
+   tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_PNADc,UF %in% UF_interesse[i] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6],tabela[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("datagrafico",UF_interesse[i],"_EJA-2016_2",".csv",sep =""))
+  }
+}
+```
+
+#Fazendo os gráficos
+```{r}
+for (i in 1:length(UF_interesse)) {
+    #2016.1
+    base_graf <- read.csv2(
+      file =paste("EJA - 2016/datagrafico", UF_interesse[i],"_EJA-2016_1",".csv",
+                  sep ="")
+      )
+    
+    #2016.2
+    base_graf_1 <- read.csv2(
+      file =paste("EJA - 2016/datagrafico", UF_interesse[i],"_EJA-2016_2",".csv",
+                  sep ="")
+      )
+    
+    #2019.1
+    base_graf_2 <- read.csv2(
+      file =paste("EJA - 2019/datagrafico", UF_interesse[i],"_EJA-2019_1",".csv",
+                  sep ="")
+      )
+    
+    #2019.2
+    base_graf_3 <- read.csv2(
+      file =paste("EJA - 2019/datagrafico", UF_interesse[i],"_EJA-2019_2",".csv",
+                  sep ="")
+      )
+    
+    #2016.1
+    graf_2016.1 <- base_graf %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = "EJA")
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas no EJA ",
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2016.1", sep = "")
+      )
+    
+    #2016.2
+    graf_2016.2 <- base_graf_1 %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = "EJA")
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas no EJA ",
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2016.2", sep = "")
+      )
+    
+    #2019.1
+    graf_2019.1 <- base_graf_2 %>% ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = "EJA")
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas no EJA ",
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2019.1", sep = "")
+      )
+    
+    #2019.2
+    graf_2019.2 <- base_graf_3 %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = "EJA")
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas no EJA ",
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2019.2", sep = "")
+      )
+    
+    #FINAL
+    final <- (graf_2016.1 + graf_2016.2) / (graf_2019.1 + graf_2019.2) 
+    
+    ggsave(paste("Graf_",UF_interesse[i],"_EJA.pdf",sep =""),
+           plot = final)
+}
+```
+
+
+#Facetando os gráficos
+```{r}
+load(fs::path_home("Design_PNADc_2019_4"))
+design_2019 <- design_PNADc
+
+load(fs::path_home("Design_PNADc_2015_4"))
+design_2015 <- design_PNADc
+
+#Método do Cássio
+#2019
+V2010_4 = as.character(design_2019$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_2019$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2019$variables <- bind_cols(design_2019$variables, V2010_4)
+
+design_2019$variables$V2010_4 <- as.factor(design_2019$variables$V2010_4)
+
+#2015
+V2010_4 = as.character(design_2015$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca=as.character(design_2015$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2015$variables <- bind_cols(design_2015$variables, V2010_4)
+
+design_2015$variables$V2010_4 <- as.factor(design_2015$variables$V2010_4)
+```
+
+```{r}
+for (i in 1:length(UF_interesse)) {
+  gc()
+
+  for (j in 1:length(ensino_)) {
+   #grafico 2015
+    tabela <- survey::svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2015,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+    se = c(tabela[1,5],tabela[1,6], tabela[1,7]))
+
+  gc()
+  
+  #grafico 2019
+  tabela_1 <- survey::svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2019,UF %in% UF_interesse[i] & V3003A %in% ensino_[j]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+  dat_graf_1 <- data.frame(
+    raca = c("Branca","Negra","Outros"),
+    prop = c(tabela_1[1,2],tabela_1[1,3],tabela_1[1,4]),
+    se = c(tabela_1[1,5],tabela_1[1,6], tabela_1[1,7]))
+
+  gc()
+  
+  write.csv2(dat_graf, file =
+               paste("Graf_2015_",UF_interesse[i],"_",ensino_[j],".csv",
+                     sep =""))
+  
+  write.csv2(dat_graf_1, file =
+               paste("Graf_2019_",UF_interesse[i],"_",ensino_[j],".csv",
+                     sep =""))
+  }
+}
+```
+
+```{r}
+for (i in 1:length(UF_interesse)) {
+  for (j in 1:length(ensino_)) {
+    
+    base_graf <- read.csv2(
+      file =paste("15 e 19/Graf_2015_", UF_interesse[i],"_",ensino_[j],".csv",
+                  sep ="")
+      )
+    
+    base_graf_1 <- read.csv2(
+      file =paste("15 e 19/Graf_2019_", UF_interesse[i],"_",ensino_[j],".csv",
+                  sep ="")
+      )
+    
+    graf_2015 <- base_graf %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = ensino_[j])
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2015", sep = "")
+      )
+    
+    graf_2019 <- base_graf_1 %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = ensino_[j])
+    ) +
+  scale_y_continuous(limits = 0:1) +
+      labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - PNAD 2019", sep = "")
+      )
+    
+    final <- graf_2015 + graf_2019 
+    
+    final <- grid.arrange(graf_2015,graf_2019,nrow=1,ncol=2)
+    
+    ggsave(paste("Graf",UF_interesse[i],ensino_[j],".pdf",sep =""),
+           plot = final,width = 9)
+  }
+}
+```
+# tabulação_matriculas_1519_v2
+
+```{r}
+base_inep_15 <- read_excel("tabela_inep_15.xlsx")
+base_inep_19 <- read_excel("tabela_inep_19.xlsx")
+
+UF_interesse <- as.vector(unique(base_inep_15$CO_UF))
+ensino_ <- as.vector(unique(base_inep_15$ETAPA))
+
+#Graficos
+for (i in 1:length(UF_interesse)) {
+  for (j in 1:length(ensino_)) {
+    
+  base_inep_15.1 <- base_inep_15 %>% 
+  mutate(Negra = Preta...7 + Parda...8,
+         Outras = Amarela...9 + Indíge0,
+         Branca = Branca...6,
+         `Não declarada` = `Não declarada...5`,
+         total = TOTAL) %>% 
+  select(CO_UF,ETAPA, Branca, Negra, Outras,`Não declarada`, total)
+
+
+base_inep_19.1 <- base_inep_19 %>% 
+  mutate(Negra = Preta...7 + Parda...8,
+         Outras = Amarela...9 + Indíge0,
+         Branca = Branca...6,
+         `Não declarada` = `Não declarada...5`,
+         total = TOTAL) %>% 
+  select(CO_UF,ETAPA, Branca, Negra, Outras,`Não declarada`, total)
+  
+    dat_graf <- base_inep_15.1 %>% filter(CO_UF == UF_interesse[i],
+                                          ETAPA == ensino_[j])
+    dat_graf_1 <- base_inep_19.1 %>% filter(CO_UF == UF_interesse[i],
+                                            ETAPA == ensino_[j])
+
+graf_dat <- data.frame(
+  raca = c("Branca","Negra","Outras","Sem declaração"),
+  ensino = c(sum(dat_graf$Branca) / sum(dat_graf$total),
+             sum(dat_graf$Negra) / sum(dat_graf$total),
+             sum(dat_graf$Outras) / sum(dat_graf$total),
+             sum(dat_graf$`Não declarada`) / sum(dat_graf$total))
+)
+
+graf <- graf_dat %>% ggplot(
+  aes(x = raca,
+      y = ensino)) +
+  geom_bar(stat="identity", fill="skyblue") +
+  scale_y_continuous(limits = 0:1) +
+  labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - INEP 2015", sep = "")
+      ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = paste(dat_graf$ETAPA[1], sep = ""))
+  )
+
+graf_dat_1 <- data.frame(
+  raca = c("Branca","Negra","Outras","Sem declaração"),
+  ensino = c(sum(dat_graf_1$Branca) / sum(dat_graf_1$total),
+             sum(dat_graf_1$Negra) / sum(dat_graf_1$total),
+             sum(dat_graf_1$Outras) / sum(dat_graf_1$total),
+             sum(dat_graf_1$`Não declarada`) / sum(dat_graf_1$total))
+)
+
+graf_1 <- graf_dat_1 %>% ggplot(
+  aes(x = raca,
+      y = ensino)) +
+  geom_bar(stat="identity", fill="skyblue") +
+  scale_y_continuous(limits = 0:1) +
+  labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - INEP 2019", sep = "")
+      ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = paste(dat_graf$ETAPA[1], sep = ""))
+    )
+
+final <- graf + graf_1
+
+ggsave(paste("Graf",UF_interesse[i],dat_graf$ETAPA[1],".pdf",sep =""),
+           plot = final,width = 9)
+
+}}
+```

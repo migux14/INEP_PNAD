@@ -1,0 +1,160 @@
+---
+title: "Grafico - 1"
+author: "Miguel Conforto"
+date: "2022-09-12"
+output: html_document
+---
+
+```{r}
+library(PNADcIBGE)
+library(PNADc.table)
+library(survey)
+library(dplyr)
+library(ggplot2)
+library(reshape2)
+```
+
+```{r}
+PNADc.table::pnadc_download(2019,4)
+PNADc.table::pnadc_download(2015,4)
+```
+
+# Escolhendo a UF
+```{r}
+UF_interesse <- "Rondônia" #11
+
+ensino_ <- "Pré-escola"
+```
+
+# 2015
+## Criando a tabela
+```{r}
+# PESO = V1028
+load(fs::path_home("Design_PNADc_2015_4"))
+
+design_PNADc <- subset(design_PNADc,
+                  UF %in% UF_interesse & V3003A %in% ensino_
+                  )
+
+gc()
+
+#ERROR !!!
+#Substituindo as raças
+aux <- design_PNADc$variables[,"V2010"]
+sub <- as.character(aux)
+
+troca <- list("Negra" = c("Parda", "Preta"), "Outros" = c("Indígena", "Amarela"))
+
+troca <- as.data.frame(troca)
+
+for (i in 1:nrow(troca)) {
+  for (j in 1:ncol(troca)) {
+    sub[aux == troca[i,j]] <- colnames(troca)
+  }
+}
+
+sub <- as.factor(sub)
+sub_df <- as.data.frame(sub)
+
+#Gerando a tabela
+tabela <- survey::svyby(
+  ~sub_df$sub,
+  ~V3003A,
+  design = subset(design_PNADc,
+                  UF %in% UF_interesse & V3003A %in% ensino_
+                  ),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+dat_graf <- data.frame(
+  raca = c("Branca", "Negra", "Outra"),
+  prop = c(tabela[1, 2],tabela[1, 3],tabela[1, 4] ),
+  se = c(tabela[1, 5],tabela[1, 6],tabela[1, 7])
+)
+
+gc()
+```
+
+#Salvando CSV das tabelas
+```{r}
+write.csv2(tabela, file = "tabela.csv")
+```
+
+
+
+# Criando gráfico
+```{r}
+dat_graf %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = ensino_)
+    ) +
+  scale_y_continuous(limits = 0:1)
+
+  
+```
+
+
+```{r}
+#Gerando a tabela
+tabela <- survey::svyby(
+  ~V2010,
+  ~V3003A,
+  design = subset(design_PNADc,
+                  UF %in% UF_interesse & V3003A %in% ensino_
+                  ),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+dat_graf <- data.frame(
+  raca = c("Branca", "Preta", "Amarela","Parda", "Indígena", "Ignorada"),
+  prop = c(tabela[1, 2],tabela[1, 3],tabela[1, 4],tabela[1, 5],tabela[1, 6], tabela[1, 7]),
+  se = c(tabela[1, 8],tabela[1, 9],tabela[1, 10], tabela[1, 11],tabela[1, 12], tabela[1, 13])
+)
+
+gc()
+```
+
+
+```{r}
+save(dat_graf,file = "dataframe_grafico.Rdata")
+```
+

@@ -1,0 +1,95 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+# tabulação_matriculas_1519_v2
+```{r}
+base_inep_15 <- read_excel("tabela_inep_15.xlsx")
+base_inep_19 <- read_excel("tabela_inep_19.xlsx")
+
+UF_interesse <- as.vector(unique(base_inep_15$CO_UF))
+ensino_ <- as.vector(unique(base_inep_15$ETAPA))
+
+#Graficos
+for (i in 1:length(UF_interesse)) {
+  for (j in 1:length(ensino_)) {
+    
+  base_inep_15.1 <- base_inep_15 %>% 
+  mutate(Negra = Preta...7 + Parda...8,
+         Outras = Amarela...9 + Indíge0,
+         Branca = Branca...6,
+         `Não declarada` = `Não declarada...5`,
+         total = TOTAL) %>% 
+  select(CO_UF,ETAPA, Branca, Negra, Outras,`Não declarada`, total)
+
+
+base_inep_19.1 <- base_inep_19 %>% 
+  mutate(Negra = Preta...7 + Parda...8,
+         Outras = Amarela...9 + Indíge0,
+         Branca = Branca...6,
+         `Não declarada` = `Não declarada...5`,
+         total = TOTAL) %>% 
+  select(CO_UF,ETAPA, Branca, Negra, Outras,`Não declarada`, total)
+  
+    dat_graf <- base_inep_15.1 %>% filter(CO_UF == UF_interesse[i],
+                                          ETAPA == ensino_[j])
+    dat_graf_1 <- base_inep_19.1 %>% filter(CO_UF == UF_interesse[i],
+                                            ETAPA == ensino_[j])
+
+graf_dat <- data.frame(
+  raca = c("Branca","Negra","Outras","Sem declaração"),
+  ensino = c(sum(dat_graf$Branca) / sum(dat_graf$total),
+             sum(dat_graf$Negra) / sum(dat_graf$total),
+             sum(dat_graf$Outras) / sum(dat_graf$total),
+             sum(dat_graf$`Não declarada`) / sum(dat_graf$total))
+)
+
+graf <- graf_dat %>% ggplot(
+  aes(x = raca,
+      y = ensino)) +
+  geom_bar(stat="identity", fill="skyblue") +
+  scale_y_continuous(limits = 0:1) +
+  labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - INEP 2015", sep = "")
+      ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = paste(dat_graf$ETAPA[1], sep = ""))
+  )
+
+graf_dat_1 <- data.frame(
+  raca = c("Branca","Negra","Outras","Sem declaração"),
+  ensino = c(sum(dat_graf_1$Branca) / sum(dat_graf_1$total),
+             sum(dat_graf_1$Negra) / sum(dat_graf_1$total),
+             sum(dat_graf_1$Outras) / sum(dat_graf_1$total),
+             sum(dat_graf_1$`Não declarada`) / sum(dat_graf_1$total))
+)
+
+graf_1 <- graf_dat_1 %>% ggplot(
+  aes(x = raca,
+      y = ensino)) +
+  geom_bar(stat="identity", fill="skyblue") +
+  scale_y_continuous(limits = 0:1) +
+  labs(title = paste(
+        "Percentual de matrículas em ",
+        ensino_[j],
+        sep = ""
+      ),
+      subtitle = paste(UF_interesse[i]," - INEP 2019", sep = "")
+      ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = paste(dat_graf$ETAPA[1], sep = ""))
+    )
+
+final <- graf + graf_1
+
+ggsave(paste("Graf",UF_interesse[i],dat_graf$ETAPA[1],".pdf",sep =""),
+           plot = final,width = 9)
+
+}}
+```

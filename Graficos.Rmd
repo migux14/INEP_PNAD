@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+load("dataframe_grafico.Rdata")
+```
+
+
+#Gráfico
+```{r}
+dat_graf %>%  ggplot() +
+  geom_bar(
+    aes(
+      x= raca,
+      y= prop
+      ),
+    stat="identity", fill="skyblue"
+    ) +
+  geom_errorbar(
+    aes(
+      x= raca,
+      ymin= prop - se,
+      ymax = prop + se
+        ),
+    colour = "red",
+    size = 0.7,
+    alpha = 0.7,
+    width = 0.4
+    ) +
+  geom_pointrange(
+    aes(
+      x = raca,
+      y = prop,
+      ymin = prop,
+      ymax = prop
+      ),
+    colour = "black",
+    size = 0.5
+    ) +
+  guides(
+    x = guide_axis(title = "Raça"),
+    y = guide_axis(title = "Pré-escola")
+    ) +
+  scale_y_continuous(limits = 0:1)
+```
+

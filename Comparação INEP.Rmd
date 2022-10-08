@@ -1,0 +1,832 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(PNADcIBGE)
+library(PNADc.table)
+library(survey)
+library(dplyr)
+library(ggplot2)
+library(reshape2)
+library(patchwork)
+library(gridExtra)
+library(readxl)
+library(forcats)
+```
+
+```{r}
+design_2019.4 <- get_pnadc(2019, interview = 1)
+
+design_2015.4 <- get_pnadc(2015, interview = 1)
+
+gc()
+```
+
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Pré-escola","Regular do ensino fundamental","Regular do ensino médio")
+```
+
+```{r}
+#2019
+V2010_4 <- as.character(design_2019.4$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca <- as.character(design_2019.4$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2019.4$variables <- bind_cols(design_2019.4$variables, V2010_4)
+
+design_2019.4$variables$V2010_4 <- as.factor(design_2019.4$variables$V2010_4)
+
+#2015
+V2010_4 <- as.character(design_2015.4$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca <- as.character(design_2015.4$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2015.4$variables <- bind_cols(design_2015.4$variables, V2010_4)
+
+design_2015.4$variables$V2010_4 <- as.factor(design_2015.4$variables$V2010_4)
+
+```
+
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2015.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:6),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2015.4, V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:6),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2015_rede.csv")
+```
+
+#Total 2015
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2015.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:6),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2015.4, V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:6),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2015_total_rede.csv")
+```
+
+
+#2019
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2019.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:6),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2019.4, V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:6),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2019_rede.csv")
+```
+
+#TOTAL 2019
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2019.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:6),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A + V3002A,
+  design = subset(design_2019.4, V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 6),
+  ETAPA = c(rep(ensino_[i],6)),
+  REDE = c(rep(tabela[1,2],3),rep(tabela[2,2],3)),
+  COR = c("Branca", "Negra", "Outros","Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[2,3],tabela[2,4],tabela[2,5]),
+  se.pd = c(tabela[1,6],tabela[1,7],tabela[1,8],tabela[2,6],tabela[2,7],tabela[2,8])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:6),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2019_total_rede.csv")
+```
+
+
+#Sem divisão por rede
+#2015
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2015.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:3),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2015.4, V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:3),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2015.csv")
+```
+
+#TOTAL 2015
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2015.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:3),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2015.4, V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:3),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2015_Total.csv")
+```
+
+
+#2019
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2019.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:3),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2019.4, V3003A %in% ensino_[i]),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:3),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2019.csv")
+```
+
+#TOTAL 2019
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2019.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+  }
+}
+
+data_final <- data_final[-(1:3),]
+
+#Nivel Brasil
+data_final.2 <- data_aux
+
+for (i in 1:length(ensino_)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A,
+  design = subset(design_2019.4, V3003A %in% ensino_[i]),
+  FUN = svytotal,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep(ensino_[i],3),
+  COR = c("Branca", "Negra", "Outros"),
+  total_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_final.2, data_aux)
+}
+
+data_final.2 <- data_final.2[-(1:3),]
+
+
+data_final.2 <- bind_rows(data_final.2, data_final)
+
+write.csv2(data_final.2, file = "Pnad_2019_Total.csv")
+```
+
+
+#eja
+```{r}
+load(fs::path_home("Design_PNADc_2019_1"))
+design_2019.1 <- design_PNADc
+
+load(fs::path_home("Design_PNADc_2015_1"))
+design_2015.1 <- design_PNADc
+
+gc()
+```
+
+```{r}
+#2019
+ensino_ <- c("Educação de jovens e adultos (EJA) do ensino fundamental", "Educação de jovens e adultos (EJA) do ensino médio")
+
+V3003A_2 = as.character(design_2019.1$variables$V3003A)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_2019.1$variables$V3003A)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_2019.1$variables <- bind_cols(design_2019.1$variables, V3003A_2)
+
+design_2019.1$variables$V3003A_2 <- as.factor(design_2019.1$variables$V3003A_2)
+
+#2015
+ensino_ <- c("Educação de jovens e adultos (EJA) ou supletivo do ensino fundamental", "Educação de jovens e adultos (EJA) ou supletivo do ensino médio")
+
+V3003A_2 = as.character(design_2015.1$variables$V3003)
+V3003A_2 <- as.data.frame(V3003A_2)
+
+eja = as.character(design_2015.1$variables$V3003)
+eja[is.na(eja)] <- "NA"
+
+V3003A_2[eja == ensino_[1] | eja == ensino_[2], 1] <- "EJA"
+
+design_2015.1$variables <- bind_cols(design_2015.1$variables, V3003A_2)
+
+design_2015.1$variables$V3003A_2 <- as.factor(design_2015.1$variables$V3003A_2)
+```
+
+```{r}
+#2019
+V2010_4 <- as.character(design_2019.1$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca <- as.character(design_2019.1$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2019.1$variables <- bind_cols(design_2019.1$variables, V2010_4)
+
+design_2019.1$variables$V2010_4 <- as.factor(design_2019.1$variables$V2010_4)
+
+#2015
+V2010_4 <- as.character(design_2015.1$variables$V2010)
+V2010_4 <- as.data.frame(V2010_4)
+
+raca <- as.character(design_2015.1$variables$V2010)
+
+V2010_4[raca == "Preta"|raca == "Parda", 1] <- "Negra"
+V2010_4[raca == "Indígena"|raca == "Amarela" | raca == "Ignorado", 1] <- "Outros"
+
+design_2015.1$variables <- bind_cols(design_2015.1$variables, V2010_4)
+
+design_2015.1$variables$V2010_4 <- as.factor(design_2015.1$variables$V2010_4)
+```
+
+
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+```
+
+
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_2015.1, UF %in% UF_interesse[j] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep("EJA",3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+}
+
+data_final <- data_final[-(1:3),]
+
+#Brasil
+data_final.2 <- data_aux
+
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_2015.1, V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep("EJA",3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_aux, data_final)
+
+
+write.csv2(data_final.2, file = "Pnad_EJA_2015.1.csv")
+```
+
+#2019
+```{r}
+i <- 1
+j <- 1
+
+data_final <- data_aux
+
+for (j in 1:length(UF_interesse)) {
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_2019.1, UF %in% UF_interesse[j] & V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep(UF_interesse[j], 3),
+  ETAPA = rep("EJA",3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final <- bind_rows(data_final, data_aux)
+}
+
+data_final <- data_final[-(1:3),]
+
+#Brasil
+data_final.2 <- data_aux
+
+tabela <- svyby(
+  ~V2010_4,
+  ~V3003A_2,
+  design = subset(design_2019.1, V3003A_2 %in% "EJA"),
+  FUN = svymean,
+  na.rm = TRUE,
+  multicore = TRUE,
+  na.rm.by = TRUE,
+  na.rm.all = TRUE,
+  keep.names = FALSE,
+  )
+
+data_aux <- data.frame(
+  UF = rep("Brasil", 3),
+  ETAPA = rep("EJA",3),
+  COR = c("Branca", "Negra", "Outros"),
+  taxa_pd = c(tabela[1,2],tabela[1,3],tabela[1,4]),
+  se.pd = c(tabela[1,5],tabela[1,6],tabela[1,7])
+)
+
+data_final.2 <- bind_rows(data_aux, data_final)
+
+
+write.csv2(data_final.2, file = "Pnad_EJA_2019.1.csv")
+```

@@ -1,0 +1,505 @@
+"";"UF";"ETAPA";"REDE";"COR";"taxa_pd";"se.pd"
+"1";"Brasil";"Pré-escola";"Rede privada";"Branca";0,552445038133801;0,0305980777925071
+"2";"Brasil";"Pré-escola";"Rede privada";"Negra";0,446686204303023;0,0305943854384796
+"3";"Brasil";"Pré-escola";"Rede privada";"Outros";0,000868757563176544;0,000897262497524292
+"4";"Brasil";"Pré-escola";"Rede pública";"Branca";0,374324290444615;0,0179193852550701
+"5";"Brasil";"Pré-escola";"Rede pública";"Negra";0,621195291598851;0,0179662669097878
+"6";"Brasil";"Pré-escola";"Rede pública";"Outros";0,00448041795653337;0,00293362931855666
+"7";"Brasil";"Regular do ensino fundamental";"Rede privada";"Branca";0,535210594234178;0,0180196870206091
+"8";"Brasil";"Regular do ensino fundamental";"Rede privada";"Negra";0,448809057654093;0,0183888810364118
+"9";"Brasil";"Regular do ensino fundamental";"Rede privada";"Outros";0,0159803481117285;0,00721692252709104
+"10";"Brasil";"Regular do ensino fundamental";"Rede pública";"Branca";0,351164286886356;0,00795470517532392
+"11";"Brasil";"Regular do ensino fundamental";"Rede pública";"Negra";0,644639029992792;0,00794780701419518
+"12";"Brasil";"Regular do ensino fundamental";"Rede pública";"Outros";0,00419668312085213;0,00116196108709707
+"13";"Brasil";"Regular do ensino médio";"Rede privada";"Branca";0,645082600116384;0,026438741568348
+"14";"Brasil";"Regular do ensino médio";"Rede privada";"Negra";0,349888543781926;0,0266136925838638
+"15";"Brasil";"Regular do ensino médio";"Rede privada";"Outros";0,00502885610169084;0,0036788901454803
+"16";"Brasil";"Regular do ensino médio";"Rede pública";"Branca";0,397999621318413;0,0129679715983253
+"17";"Brasil";"Regular do ensino médio";"Rede pública";"Negra";0,59738260649022;0,0127592710272917
+"18";"Brasil";"Regular do ensino médio";"Rede pública";"Outros";0,00461777219136639;0,00148948689438218
+"19";"Rondônia";"Pré-escola";"Rede privada";"Branca";1;0
+"20";"Rondônia";"Pré-escola";"Rede privada";"Negra";0;0
+"21";"Rondônia";"Pré-escola";"Rede privada";"Outros";0;0
+"22";"Rondônia";"Pré-escola";"Rede pública";"Branca";0,133634705155522;0,0748297209847872
+"23";"Rondônia";"Pré-escola";"Rede pública";"Negra";0,866365294844478;0,0748297209847872
+"24";"Rondônia";"Pré-escola";"Rede pública";"Outros";0;0
+"25";"Acre";"Pré-escola";"Rede privada";"Branca";0,417837197150717;0,229855403969307
+"26";"Acre";"Pré-escola";"Rede privada";"Negra";0,582162802849283;0,229855403969307
+"27";"Acre";"Pré-escola";"Rede privada";"Outros";0;0
+"28";"Acre";"Pré-escola";"Rede pública";"Branca";0,179250407466797;0,077107624042884
+"29";"Acre";"Pré-escola";"Rede pública";"Negra";0,787730255506515;0,0785034812907331
+"30";"Acre";"Pré-escola";"Rede pública";"Outros";0,0330193370266885;0,0296557430959005
+"31";"Amazonas";"Pré-escola";"Rede privada";"Branca";0,484928716992874;0,159924990989686
+"32";"Amazonas";"Pré-escola";"Rede privada";"Negra";0,515071283007126;0,159924990989686
+"33";"Amazonas";"Pré-escola";"Rede privada";"Outros";0;0
+"34";"Amazonas";"Pré-escola";"Rede pública";"Branca";0,239663864408032;0,0795530415224808
+"35";"Amazonas";"Pré-escola";"Rede pública";"Negra";0,760336135591968;0,0795530415224808
+"36";"Amazonas";"Pré-escola";"Rede pública";"Outros";0;0
+"37";"Roraima";"Pré-escola";"Rede privada";"Branca";0,546024620942642;0,338396239885028
+"38";"Roraima";"Pré-escola";"Rede privada";"Negra";0,453975379057358;0,338396239885028
+"39";"Roraima";"Pré-escola";"Rede privada";"Outros";0;0
+"40";"Roraima";"Pré-escola";"Rede pública";"Branca";0,167159546726818;0,0624729752165981
+"41";"Roraima";"Pré-escola";"Rede pública";"Negra";0,811337320649307;0,0646753531510683
+"42";"Roraima";"Pré-escola";"Rede pública";"Outros";0,0215031326238748;0,0242653120574847
+"43";"Pará";"Pré-escola";"Rede privada";"Branca";0,154728207857957;0,0764178193107461
+"44";"Pará";"Pré-escola";"Rede privada";"Negra";0,845271792142043;0,0764178193107461
+"45";"Pará";"Pré-escola";"Rede privada";"Outros";0;0
+"46";"Pará";"Pré-escola";"Rede pública";"Branca";0,180561443318326;0,05162511875054
+"47";"Pará";"Pré-escola";"Rede pública";"Negra";0,810238002690319;0,0524179812193227
+"48";"Pará";"Pré-escola";"Rede pública";"Outros";0,0092005539913542;0,0095969161447615
+"49";"Amapá";"Pré-escola";"Rede privada";"Branca";0,272901882417941;0,16928748920225
+"50";"Amapá";"Pré-escola";"Rede privada";"Negra";0,727098117582059;0,16928748920225
+"51";"Amapá";"Pré-escola";"Rede privada";"Outros";0;0
+"52";"Amapá";"Pré-escola";"Rede pública";"Branca";0,17131643173581;0,172698415075334
+"53";"Amapá";"Pré-escola";"Rede pública";"Negra";0,828683568264191;0,172698415075334
+"54";"Amapá";"Pré-escola";"Rede pública";"Outros";0;0
+"55";"Tocantins";"Pré-escola";"Rede pública";"Branca";0,209627907736299;0,100283311723011
+"56";"Tocantins";"Pré-escola";"Rede pública";"Negra";0,790372092263701;0,100283311723011
+"57";"Tocantins";"Pré-escola";"Rede pública";"Outros";0;0
+"58";"Tocantins";"Pré-escola";NA;"Branca";NA;NA
+"59";"Tocantins";"Pré-escola";NA;"Negra";NA;NA
+"60";"Tocantins";"Pré-escola";NA;"Outros";NA;NA
+"61";"Maranhão";"Pré-escola";"Rede privada";"Branca";0,161120163151806;0,123399921556869
+"62";"Maranhão";"Pré-escola";"Rede privada";"Negra";0,838879836848194;0,123399921556869
+"63";"Maranhão";"Pré-escola";"Rede privada";"Outros";0;0
+"64";"Maranhão";"Pré-escola";"Rede pública";"Branca";0,183286266860363;0,0321658892551945
+"65";"Maranhão";"Pré-escola";"Rede pública";"Negra";0,816713733139637;0,0321658892551945
+"66";"Maranhão";"Pré-escola";"Rede pública";"Outros";0;0
+"67";"Piauí";"Pré-escola";"Rede privada";"Branca";0,301512274376842;0,281405115801254
+"68";"Piauí";"Pré-escola";"Rede privada";"Negra";0,698487725623158;0,281405115801254
+"69";"Piauí";"Pré-escola";"Rede privada";"Outros";0;0
+"70";"Piauí";"Pré-escola";"Rede pública";"Branca";0,153908269044493;0,0560658931825214
+"71";"Piauí";"Pré-escola";"Rede pública";"Negra";0,846091730955507;0,0560658931825214
+"72";"Piauí";"Pré-escola";"Rede pública";"Outros";0;0
+"73";"Ceará";"Pré-escola";"Rede privada";"Branca";0,306499248257243;0,124201445059061
+"74";"Ceará";"Pré-escola";"Rede privada";"Negra";0,693500751742757;0,124201445059061
+"75";"Ceará";"Pré-escola";"Rede privada";"Outros";0;0
+"76";"Ceará";"Pré-escola";"Rede pública";"Branca";0,247372878120525;0,0503744494339212
+"77";"Ceará";"Pré-escola";"Rede pública";"Negra";0,738355225965325;0,0498327474453658
+"78";"Ceará";"Pré-escola";"Rede pública";"Outros";0,0142718959141501;0,0135482537474696
+"79";"Rio Grande do Norte";"Pré-escola";"Rede privada";"Branca";0,615793512895961;0,162539092350711
+"80";"Rio Grande do Norte";"Pré-escola";"Rede privada";"Negra";0,384206487104039;0,162539092350711
+"81";"Rio Grande do Norte";"Pré-escola";"Rede privada";"Outros";0;0
+"82";"Rio Grande do Norte";"Pré-escola";"Rede pública";"Branca";0,322973910388789;0,098110699378922
+"83";"Rio Grande do Norte";"Pré-escola";"Rede pública";"Negra";0,677026089611211;0,098110699378922
+"84";"Rio Grande do Norte";"Pré-escola";"Rede pública";"Outros";0;0
+"85";"Paraíba";"Pré-escola";"Rede privada";"Branca";0,588391886026956;0,134967413115428
+"86";"Paraíba";"Pré-escola";"Rede privada";"Negra";0,411608113973044;0,134967413115428
+"87";"Paraíba";"Pré-escola";"Rede privada";"Outros";0;0
+"88";"Paraíba";"Pré-escola";"Rede pública";"Branca";0,400506494211574;0,0827514070883389
+"89";"Paraíba";"Pré-escola";"Rede pública";"Negra";0,599493505788426;0,0827514070883389
+"90";"Paraíba";"Pré-escola";"Rede pública";"Outros";0;0
+"91";"Pernambuco";"Pré-escola";"Rede privada";"Branca";0,421997859149936;0,105871374337738
+"92";"Pernambuco";"Pré-escola";"Rede privada";"Negra";0,578002140850064;0,105871374337738
+"93";"Pernambuco";"Pré-escola";"Rede privada";"Outros";0;0
+"94";"Pernambuco";"Pré-escola";"Rede pública";"Branca";0,215513841098311;0,0655315878627467
+"95";"Pernambuco";"Pré-escola";"Rede pública";"Negra";0,784486158901689;0,0655315878627467
+"96";"Pernambuco";"Pré-escola";"Rede pública";"Outros";0;0
+"97";"Alagoas";"Pré-escola";"Rede privada";"Branca";0,346651739987989;0,110364151651788
+"98";"Alagoas";"Pré-escola";"Rede privada";"Negra";0,653348260012011;0,110364151651788
+"99";"Alagoas";"Pré-escola";"Rede privada";"Outros";0;0
+"100";"Alagoas";"Pré-escola";"Rede pública";"Branca";0,275036669381932;0,0546940660682386
+"101";"Alagoas";"Pré-escola";"Rede pública";"Negra";0,724963330618068;0,0546940660682386
+"102";"Alagoas";"Pré-escola";"Rede pública";"Outros";0;0
+"103";"Sergipe";"Pré-escola";"Rede privada";"Branca";0,106780611385433;0,118647471605913
+"104";"Sergipe";"Pré-escola";"Rede privada";"Negra";0,893219388614567;0,118647471605913
+"105";"Sergipe";"Pré-escola";"Rede privada";"Outros";0;0
+"106";"Sergipe";"Pré-escola";"Rede pública";"Branca";0,0717585903010841;0,0620476894363196
+"107";"Sergipe";"Pré-escola";"Rede pública";"Negra";0,928241409698916;0,0620476894363196
+"108";"Sergipe";"Pré-escola";"Rede pública";"Outros";0;0
+"109";"Bahia";"Pré-escola";"Rede privada";"Branca";0,283132971444262;0,0983143337177363
+"110";"Bahia";"Pré-escola";"Rede privada";"Negra";0,716867028555738;0,0983143337177363
+"111";"Bahia";"Pré-escola";"Rede privada";"Outros";0;0
+"112";"Bahia";"Pré-escola";"Rede pública";"Branca";0,178720764436404;0,0588115610105653
+"113";"Bahia";"Pré-escola";"Rede pública";"Negra";0,821279235563596;0,0588115610105653
+"114";"Bahia";"Pré-escola";"Rede pública";"Outros";0;0
+"115";"Minas Gerais";"Pré-escola";"Rede privada";"Branca";0,595221309370638;0,132505736267984
+"116";"Minas Gerais";"Pré-escola";"Rede privada";"Negra";0,392112014435182;0,132617273032296
+"117";"Minas Gerais";"Pré-escola";"Rede privada";"Outros";0,0126666761941798;0,0142620438067238
+"118";"Minas Gerais";"Pré-escola";"Rede pública";"Branca";0,37346574589043;0,0500200101092347
+"119";"Minas Gerais";"Pré-escola";"Rede pública";"Negra";0,62653425410957;0,0500200101092347
+"120";"Minas Gerais";"Pré-escola";"Rede pública";"Outros";0;0
+"121";"Espírito Santo";"Pré-escola";"Rede privada";"Branca";0,601734736113038;0,179458054049427
+"122";"Espírito Santo";"Pré-escola";"Rede privada";"Negra";0,398265263886962;0,179458054049427
+"123";"Espírito Santo";"Pré-escola";"Rede privada";"Outros";0;0
+"124";"Espírito Santo";"Pré-escola";"Rede pública";"Branca";0,383347121940577;0,0636052133161504
+"125";"Espírito Santo";"Pré-escola";"Rede pública";"Negra";0,616652878059423;0,0636052133161504
+"126";"Espírito Santo";"Pré-escola";"Rede pública";"Outros";0;0
+"127";"Rio de Janeiro";"Pré-escola";"Rede privada";"Branca";0,654335272402219;0,0798452123534543
+"128";"Rio de Janeiro";"Pré-escola";"Rede privada";"Negra";0,34566472759778;0,0798452123534543
+"129";"Rio de Janeiro";"Pré-escola";"Rede privada";"Outros";0;0
+"130";"Rio de Janeiro";"Pré-escola";"Rede pública";"Branca";0,247913404807956;0,0523904405943031
+"131";"Rio de Janeiro";"Pré-escola";"Rede pública";"Negra";0,752086595192044;0,0523904405943031
+"132";"Rio de Janeiro";"Pré-escola";"Rede pública";"Outros";0;0
+"133";"São Paulo";"Pré-escola";"Rede privada";"Branca";0,822041798425012;0,0891193632076894
+"134";"São Paulo";"Pré-escola";"Rede privada";"Negra";0,177958201574988;0,0891193632076894
+"135";"São Paulo";"Pré-escola";"Rede privada";"Outros";0;0
+"136";"São Paulo";"Pré-escola";"Rede pública";"Branca";0,50634541185841;0,0553942891959143
+"137";"São Paulo";"Pré-escola";"Rede pública";"Negra";0,480562999089066;0,0557271143352634
+"138";"São Paulo";"Pré-escola";"Rede pública";"Outros";0,0130915890525244;0,0137278198332301
+"139";"Paraná";"Pré-escola";"Rede privada";"Branca";0,636143886129845;0,182907214642838
+"140";"Paraná";"Pré-escola";"Rede privada";"Negra";0,363856113870155;0,182907214642838
+"141";"Paraná";"Pré-escola";"Rede privada";"Outros";0;0
+"142";"Paraná";"Pré-escola";"Rede pública";"Branca";0,690466259445172;0,0556644009575166
+"143";"Paraná";"Pré-escola";"Rede pública";"Negra";0,309533740554828;0,0556644009575166
+"144";"Paraná";"Pré-escola";"Rede pública";"Outros";0;0
+"145";"Santa Catarina";"Pré-escola";"Rede privada";"Branca";0,873966955594532;0,0848571328875096
+"146";"Santa Catarina";"Pré-escola";"Rede privada";"Negra";0,126033044405468;0,0848571328875096
+"147";"Santa Catarina";"Pré-escola";"Rede privada";"Outros";0;0
+"148";"Santa Catarina";"Pré-escola";"Rede pública";"Branca";0,787489389656893;0,048370775273339
+"149";"Santa Catarina";"Pré-escola";"Rede pública";"Negra";0,212510610343107;0,048370775273339
+"150";"Santa Catarina";"Pré-escola";"Rede pública";"Outros";0;0
+"151";"Rio Grande do Sul";"Pré-escola";"Rede privada";"Branca";0,816199622641491;0,143182837797597
+"152";"Rio Grande do Sul";"Pré-escola";"Rede privada";"Negra";0,183800377358509;0,143182837797597
+"153";"Rio Grande do Sul";"Pré-escola";"Rede privada";"Outros";0;0
+"154";"Rio Grande do Sul";"Pré-escola";"Rede pública";"Branca";0,762913027195878;0,0506069799454498
+"155";"Rio Grande do Sul";"Pré-escola";"Rede pública";"Negra";0,237086972804122;0,0506069799454498
+"156";"Rio Grande do Sul";"Pré-escola";"Rede pública";"Outros";0;0
+"157";"Mato Grosso do Sul";"Pré-escola";"Rede privada";"Branca";0,620823469089589;0,233569409667479
+"158";"Mato Grosso do Sul";"Pré-escola";"Rede privada";"Negra";0,379176530910411;0,233569409667479
+"159";"Mato Grosso do Sul";"Pré-escola";"Rede privada";"Outros";0;0
+"160";"Mato Grosso do Sul";"Pré-escola";"Rede pública";"Branca";0,463169395713945;0,119077547946158
+"161";"Mato Grosso do Sul";"Pré-escola";"Rede pública";"Negra";0,536830604286055;0,119077547946158
+"162";"Mato Grosso do Sul";"Pré-escola";"Rede pública";"Outros";0;0
+"163";"Mato Grosso";"Pré-escola";"Rede privada";"Branca";0,223713833183232;0,219703895213092
+"164";"Mato Grosso";"Pré-escola";"Rede privada";"Negra";0,776286166816768;0,219703895213092
+"165";"Mato Grosso";"Pré-escola";"Rede privada";"Outros";0;0
+"166";"Mato Grosso";"Pré-escola";"Rede pública";"Branca";0,447808479705664;0,0731441381289443
+"167";"Mato Grosso";"Pré-escola";"Rede pública";"Negra";0,552191520294336;0,0731441381289443
+"168";"Mato Grosso";"Pré-escola";"Rede pública";"Outros";0;0
+"169";"Goiás";"Pré-escola";"Rede privada";"Branca";0,701398160947838;0,101708448980903
+"170";"Goiás";"Pré-escola";"Rede privada";"Negra";0,298601839052162;0,101708448980903
+"171";"Goiás";"Pré-escola";"Rede privada";"Outros";0;0
+"172";"Goiás";"Pré-escola";"Rede pública";"Branca";0,343370203503562;0,085852811784662
+"173";"Goiás";"Pré-escola";"Rede pública";"Negra";0,645483293887551;0,0854327129979646
+"174";"Goiás";"Pré-escola";"Rede pública";"Outros";0,0111465026088871;0,0118958544369908
+"175";"Distrito Federal";"Pré-escola";"Rede privada";"Branca";0,420075404245473;0,189301158892209
+"176";"Distrito Federal";"Pré-escola";"Rede privada";"Negra";0,579924595754527;0,189301158892209
+"177";"Distrito Federal";"Pré-escola";"Rede privada";"Outros";0;0
+"178";"Distrito Federal";"Pré-escola";"Rede pública";"Branca";0,239813234324107;0,0873975653836622
+"179";"Distrito Federal";"Pré-escola";"Rede pública";"Negra";0,760186765675893;0,0873975653836622
+"180";"Distrito Federal";"Pré-escola";"Rede pública";"Outros";0;0
+"181";"Rondônia";"Regular do ensino fundamental";"Rede privada";"Branca";0,623307291367839;0,212601118922864
+"182";"Rondônia";"Regular do ensino fundamental";"Rede privada";"Negra";0,376692708632161;0,212601118922864
+"183";"Rondônia";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"184";"Rondônia";"Regular do ensino fundamental";"Rede pública";"Branca";0,146362542420096;0,0257332955194083
+"185";"Rondônia";"Regular do ensino fundamental";"Rede pública";"Negra";0,849546639212137;0,026070115757392
+"186";"Rondônia";"Regular do ensino fundamental";"Rede pública";"Outros";0,0040908183677663;0,00431658636586352
+"187";"Acre";"Regular do ensino fundamental";"Rede privada";"Branca";0,37559915681542;0,126862463663453
+"188";"Acre";"Regular do ensino fundamental";"Rede privada";"Negra";0,62440084318458;0,126862463663453
+"189";"Acre";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"190";"Acre";"Regular do ensino fundamental";"Rede pública";"Branca";0,161122203810202;0,0324999238084458
+"191";"Acre";"Regular do ensino fundamental";"Rede pública";"Negra";0,832016497458405;0,0318164574701528
+"192";"Acre";"Regular do ensino fundamental";"Rede pública";"Outros";0,00686129873139362;0,00571640601368421
+"193";"Amazonas";"Regular do ensino fundamental";"Rede privada";"Branca";0,193265391830924;0,0868646303479903
+"194";"Amazonas";"Regular do ensino fundamental";"Rede privada";"Negra";0,806734608169076;0,0868646303479903
+"195";"Amazonas";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"196";"Amazonas";"Regular do ensino fundamental";"Rede pública";"Branca";0,128521625844456;0,0224067653476989
+"197";"Amazonas";"Regular do ensino fundamental";"Rede pública";"Negra";0,864646452690891;0,0221541507203649
+"198";"Amazonas";"Regular do ensino fundamental";"Rede pública";"Outros";0,0068319214646537;0,00355141037866825
+"199";"Roraima";"Regular do ensino fundamental";"Rede privada";"Branca";0,312283062001695;0,220682356619395
+"200";"Roraima";"Regular do ensino fundamental";"Rede privada";"Negra";0,687716937998305;0,220682356619395
+"201";"Roraima";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"202";"Roraima";"Regular do ensino fundamental";"Rede pública";"Branca";0,164192734408154;0,0317453683579084
+"203";"Roraima";"Regular do ensino fundamental";"Rede pública";"Negra";0,815548944053347;0,0374184885198598
+"204";"Roraima";"Regular do ensino fundamental";"Rede pública";"Outros";0,0202583215384992;0,0129150604743881
+"205";"Pará";"Regular do ensino fundamental";"Rede privada";"Branca";0,27673890317429;0,0675414222526307
+"206";"Pará";"Regular do ensino fundamental";"Rede privada";"Negra";0,72326109682571;0,0675414222526307
+"207";"Pará";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"208";"Pará";"Regular do ensino fundamental";"Rede pública";"Branca";0,169896403360097;0,0201146258146566
+"209";"Pará";"Regular do ensino fundamental";"Rede pública";"Negra";0,820289549124026;0,0220470298077033
+"210";"Pará";"Regular do ensino fundamental";"Rede pública";"Outros";0,0098140475158771;0,00840246331652945
+"211";"Amapá";"Regular do ensino fundamental";"Rede privada";"Branca";0,334127207718614;0,132355899110932
+"212";"Amapá";"Regular do ensino fundamental";"Rede privada";"Negra";0,570665030073183;0,13178949355162
+"213";"Amapá";"Regular do ensino fundamental";"Rede privada";"Outros";0,0952077622082028;0,125702112064425
+"214";"Amapá";"Regular do ensino fundamental";"Rede pública";"Branca";0,232015855553357;0,0399285894190358
+"215";"Amapá";"Regular do ensino fundamental";"Rede pública";"Negra";0,767984144446643;0,0399285894190358
+"216";"Amapá";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"217";"Tocantins";"Regular do ensino fundamental";"Rede privada";"Branca";0,336382129991099;0,143863014390351
+"218";"Tocantins";"Regular do ensino fundamental";"Rede privada";"Negra";0,663617870008901;0,143863014390351
+"219";"Tocantins";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"220";"Tocantins";"Regular do ensino fundamental";"Rede pública";"Branca";0,204780914828228;0,0336912835331121
+"221";"Tocantins";"Regular do ensino fundamental";"Rede pública";"Negra";0,795219085171772;0,0336912835331121
+"222";"Tocantins";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"223";"Maranhão";"Regular do ensino fundamental";"Rede privada";"Branca";0,234093089077262;0,0569161363746469
+"224";"Maranhão";"Regular do ensino fundamental";"Rede privada";"Negra";0,765906910922738;0,0569161363746469
+"225";"Maranhão";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"226";"Maranhão";"Regular do ensino fundamental";"Rede pública";"Branca";0,14974126461112;0,0135190693497175
+"227";"Maranhão";"Regular do ensino fundamental";"Rede pública";"Negra";0,848261379336278;0,0136682721096443
+"228";"Maranhão";"Regular do ensino fundamental";"Rede pública";"Outros";0,00199735605260274;0,00142239782255227
+"229";"Piauí";"Regular do ensino fundamental";"Rede privada";"Branca";0,365438781681524;0,078171720053537
+"230";"Piauí";"Regular do ensino fundamental";"Rede privada";"Negra";0,634561218318476;0,078171720053537
+"231";"Piauí";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"232";"Piauí";"Regular do ensino fundamental";"Rede pública";"Branca";0,15295339603945;0,0266217205327118
+"233";"Piauí";"Regular do ensino fundamental";"Rede pública";"Negra";0,84704660396055;0,0266217205327118
+"234";"Piauí";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"235";"Ceará";"Regular do ensino fundamental";"Rede privada";"Branca";0,346014550216015;0,0614903208028849
+"236";"Ceará";"Regular do ensino fundamental";"Rede privada";"Negra";0,653985449783985;0,0614903208028849
+"237";"Ceará";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"238";"Ceará";"Regular do ensino fundamental";"Rede pública";"Branca";0,198757457390161;0,019625340869491
+"239";"Ceará";"Regular do ensino fundamental";"Rede pública";"Negra";0,794763990861293;0,0196982300599667
+"240";"Ceará";"Regular do ensino fundamental";"Rede pública";"Outros";0,00647855174854599;0,00282779913411237
+"241";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede privada";"Branca";0,446169983246077;0,0475149112374603
+"242";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede privada";"Negra";0,553830016753923;0,0475149112374603
+"243";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"244";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede pública";"Branca";0,364498101989684;0,0390835544541181
+"245";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede pública";"Negra";0,635501898010316;0,0390835544541181
+"246";"Rio Grande do Norte";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"247";"Paraíba";"Regular do ensino fundamental";"Rede privada";"Branca";0,42050671892944;0,0662813630419408
+"248";"Paraíba";"Regular do ensino fundamental";"Rede privada";"Negra";0,57949328107056;0,0662813630419408
+"249";"Paraíba";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"250";"Paraíba";"Regular do ensino fundamental";"Rede pública";"Branca";0,307968922225249;0,0289192113781282
+"251";"Paraíba";"Regular do ensino fundamental";"Rede pública";"Negra";0,692031077774751;0,0289192113781282
+"252";"Paraíba";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"253";"Pernambuco";"Regular do ensino fundamental";"Rede privada";"Branca";0,442488347864834;0,0572875677186324
+"254";"Pernambuco";"Regular do ensino fundamental";"Rede privada";"Negra";0,551050054209917;0,0556997783804299
+"255";"Pernambuco";"Regular do ensino fundamental";"Rede privada";"Outros";0,0064615979252496;0,00646608688673268
+"256";"Pernambuco";"Regular do ensino fundamental";"Rede pública";"Branca";0,245970412325643;0,0206338704433074
+"257";"Pernambuco";"Regular do ensino fundamental";"Rede pública";"Negra";0,754029587674357;0,0206338704433074
+"258";"Pernambuco";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"259";"Alagoas";"Regular do ensino fundamental";"Rede privada";"Branca";0,32406486348542;0,0598466701848226
+"260";"Alagoas";"Regular do ensino fundamental";"Rede privada";"Negra";0,668081542322835;0,0607832554912333
+"261";"Alagoas";"Regular do ensino fundamental";"Rede privada";"Outros";0,0078535941917455;0,00777250993019022
+"262";"Alagoas";"Regular do ensino fundamental";"Rede pública";"Branca";0,19494373214106;0,020923964955832
+"263";"Alagoas";"Regular do ensino fundamental";"Rede pública";"Negra";0,797327128567329;0,0212647761526382
+"264";"Alagoas";"Regular do ensino fundamental";"Rede pública";"Outros";0,00772913929161085;0,0035621148298712
+"265";"Sergipe";"Regular do ensino fundamental";"Rede privada";"Branca";0,244063829087239;0,0825711627800083
+"266";"Sergipe";"Regular do ensino fundamental";"Rede privada";"Negra";0,755936170912761;0,0825711627800083
+"267";"Sergipe";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"268";"Sergipe";"Regular do ensino fundamental";"Rede pública";"Branca";0,164074542937469;0,0310466877731138
+"269";"Sergipe";"Regular do ensino fundamental";"Rede pública";"Negra";0,827711163865403;0,0313317825415371
+"270";"Sergipe";"Regular do ensino fundamental";"Rede pública";"Outros";0,00821429319712776;0,00481557736876433
+"271";"Bahia";"Regular do ensino fundamental";"Rede privada";"Branca";0,258336669474146;0,0486683113077003
+"272";"Bahia";"Regular do ensino fundamental";"Rede privada";"Negra";0,735873670800356;0,0488702119357246
+"273";"Bahia";"Regular do ensino fundamental";"Rede privada";"Outros";0,00578965972549738;0,00516127410236761
+"274";"Bahia";"Regular do ensino fundamental";"Rede pública";"Branca";0,179282551853174;0,0202656348603738
+"275";"Bahia";"Regular do ensino fundamental";"Rede pública";"Negra";0,813427917607395;0,0203951704221519
+"276";"Bahia";"Regular do ensino fundamental";"Rede pública";"Outros";0,00728953053943126;0,00334962662885771
+"277";"Minas Gerais";"Regular do ensino fundamental";"Rede privada";"Branca";0,686394590650557;0,0627984505570711
+"278";"Minas Gerais";"Regular do ensino fundamental";"Rede privada";"Negra";0,313605409349443;0,0627984505570711
+"279";"Minas Gerais";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"280";"Minas Gerais";"Regular do ensino fundamental";"Rede pública";"Branca";0,342059872713461;0,0286378347638717
+"281";"Minas Gerais";"Regular do ensino fundamental";"Rede pública";"Negra";0,655181600991117;0,0289699245259213
+"282";"Minas Gerais";"Regular do ensino fundamental";"Rede pública";"Outros";0,00275852629542174;0,00204764122394451
+"283";"Espírito Santo";"Regular do ensino fundamental";"Rede privada";"Branca";0,60407443443152;0,114172457375862
+"284";"Espírito Santo";"Regular do ensino fundamental";"Rede privada";"Negra";0,384559826947018;0,108343071091321
+"285";"Espírito Santo";"Regular do ensino fundamental";"Rede privada";"Outros";0,0113657386214626;0,0138448670481648
+"286";"Espírito Santo";"Regular do ensino fundamental";"Rede pública";"Branca";0,290823455778385;0,0301300344439598
+"287";"Espírito Santo";"Regular do ensino fundamental";"Rede pública";"Negra";0,705205014854386;0,0303126741332636
+"288";"Espírito Santo";"Regular do ensino fundamental";"Rede pública";"Outros";0,00397152936722885;0,00330901456376657
+"289";"Rio de Janeiro";"Regular do ensino fundamental";"Rede privada";"Branca";0,518533629707719;0,0450686988190769
+"290";"Rio de Janeiro";"Regular do ensino fundamental";"Rede privada";"Negra";0,481466370292281;0,0450686988190769
+"291";"Rio de Janeiro";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"292";"Rio de Janeiro";"Regular do ensino fundamental";"Rede pública";"Branca";0,286262553012709;0,0201593733682954
+"293";"Rio de Janeiro";"Regular do ensino fundamental";"Rede pública";"Negra";0,713737446987291;0,0201593733682954
+"294";"Rio de Janeiro";"Regular do ensino fundamental";"Rede pública";"Outros";0;0
+"295";"São Paulo";"Regular do ensino fundamental";"Rede privada";"Branca";0,787453078958715;0,0482622760530593
+"296";"São Paulo";"Regular do ensino fundamental";"Rede privada";"Negra";0,147513556545559;0,0405035915454202
+"297";"São Paulo";"Regular do ensino fundamental";"Rede privada";"Outros";0,0650333644957261;0,0366334642688128
+"298";"São Paulo";"Regular do ensino fundamental";"Rede pública";"Branca";0,524953964382143;0,0265822098129496
+"299";"São Paulo";"Regular do ensino fundamental";"Rede pública";"Negra";0,469812031428681;0,026669107546505
+"300";"São Paulo";"Regular do ensino fundamental";"Rede pública";"Outros";0,00523400418917507;0,00489370668492476
+"301";"Paraná";"Regular do ensino fundamental";"Rede privada";"Branca";0,766515782667532;0,0525349790871327
+"302";"Paraná";"Regular do ensino fundamental";"Rede privada";"Negra";0,190747683805659;0,0513796562094732
+"303";"Paraná";"Regular do ensino fundamental";"Rede privada";"Outros";0,0427365335268088;0,0237206738668821
+"304";"Paraná";"Regular do ensino fundamental";"Rede pública";"Branca";0,632370231401117;0,0224747414616093
+"305";"Paraná";"Regular do ensino fundamental";"Rede pública";"Negra";0,360690628421432;0,0225615211957646
+"306";"Paraná";"Regular do ensino fundamental";"Rede pública";"Outros";0,00693914017745062;0,00429393349798195
+"307";"Santa Catarina";"Regular do ensino fundamental";"Rede privada";"Branca";0,978315427974035;0,0217974782262657
+"308";"Santa Catarina";"Regular do ensino fundamental";"Rede privada";"Negra";0,0216845720259646;0,0217974782262657
+"309";"Santa Catarina";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"310";"Santa Catarina";"Regular do ensino fundamental";"Rede pública";"Branca";0,77606764706922;0,0232577793989752
+"311";"Santa Catarina";"Regular do ensino fundamental";"Rede pública";"Negra";0,221898281187627;0,0224726574302367
+"312";"Santa Catarina";"Regular do ensino fundamental";"Rede pública";"Outros";0,0020340717431537;0,00204272743600437
+"313";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede privada";"Branca";0,893410424078281;0,0444276831302277
+"314";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede privada";"Negra";0,106589575921719;0,0444276831302277
+"315";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"316";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede pública";"Branca";0,736323208350801;0,0242691688277108
+"317";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede pública";"Negra";0,261580452646894;0,0243112894731033
+"318";"Rio Grande do Sul";"Regular do ensino fundamental";"Rede pública";"Outros";0,00209633900230499;0,0020424332126443
+"319";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede privada";"Branca";0,610177095339454;0,114144986643005
+"320";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede privada";"Negra";0,389822904660545;0,114144986643005
+"321";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"322";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede pública";"Branca";0,341259473955694;0,0383611841572536
+"323";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede pública";"Negra";0,650403079190266;0,0392816686328712
+"324";"Mato Grosso do Sul";"Regular do ensino fundamental";"Rede pública";"Outros";0,00833744685404003;0,00718382168154171
+"325";"Mato Grosso";"Regular do ensino fundamental";"Rede privada";"Branca";0,511555577250847;0,109283461448042
+"326";"Mato Grosso";"Regular do ensino fundamental";"Rede privada";"Negra";0,488444422749153;0,109283461448042
+"327";"Mato Grosso";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"328";"Mato Grosso";"Regular do ensino fundamental";"Rede pública";"Branca";0,278346608511636;0,0351409252478771
+"329";"Mato Grosso";"Regular do ensino fundamental";"Rede pública";"Negra";0,718708209279311;0,034608385089205
+"330";"Mato Grosso";"Regular do ensino fundamental";"Rede pública";"Outros";0,00294518220905321;0,00291760262238496
+"331";"Goiás";"Regular do ensino fundamental";"Rede privada";"Branca";0,546347096659561;0,0775285152373347
+"332";"Goiás";"Regular do ensino fundamental";"Rede privada";"Negra";0,453652903340439;0,0775285152373348
+"333";"Goiás";"Regular do ensino fundamental";"Rede privada";"Outros";0;0
+"334";"Goiás";"Regular do ensino fundamental";"Rede pública";"Branca";0,301792830304372;0,0249679131855697
+"335";"Goiás";"Regular do ensino fundamental";"Rede pública";"Negra";0,697679127650179;0,0249260104946193
+"336";"Goiás";"Regular do ensino fundamental";"Rede pública";"Outros";0,000528042045448941;0,000551111624406758
+"337";"Distrito Federal";"Regular do ensino fundamental";"Rede privada";"Branca";0,631492577436169;0,0985971142070745
+"338";"Distrito Federal";"Regular do ensino fundamental";"Rede privada";"Negra";0,34687933851475;0,0985520174050929
+"339";"Distrito Federal";"Regular do ensino fundamental";"Rede privada";"Outros";0,0216280840490812;0,0145610956488537
+"340";"Distrito Federal";"Regular do ensino fundamental";"Rede pública";"Branca";0,318060204539023;0,0518457415241022
+"341";"Distrito Federal";"Regular do ensino fundamental";"Rede pública";"Negra";0,676300674895073;0,0518548477307685
+"342";"Distrito Federal";"Regular do ensino fundamental";"Rede pública";"Outros";0,00563912056590432;0,00576341299878173
+"343";"Rondônia";"Regular do ensino médio";"Rede privada";"Branca";0;0
+"344";"Rondônia";"Regular do ensino médio";"Rede privada";"Negra";1;0
+"345";"Rondônia";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"346";"Rondônia";"Regular do ensino médio";"Rede pública";"Branca";0,100678931909022;0,0366523856909164
+"347";"Rondônia";"Regular do ensino médio";"Rede pública";"Negra";0,888736824037756;0,0410032635969285
+"348";"Rondônia";"Regular do ensino médio";"Rede pública";"Outros";0,0105842440532221;0,0111455664261698
+"349";"Acre";"Regular do ensino médio";"Rede privada";"Branca";0;0
+"350";"Acre";"Regular do ensino médio";"Rede privada";"Negra";1;0
+"351";"Acre";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"352";"Acre";"Regular do ensino médio";"Rede pública";"Branca";0,162867366367392;0,049377447743788
+"353";"Acre";"Regular do ensino médio";"Rede pública";"Negra";0,837132633632608;0,049377447743788
+"354";"Acre";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"355";"Amazonas";"Regular do ensino médio";"Rede privada";"Branca";0,246109947115623;0,148279630892647
+"356";"Amazonas";"Regular do ensino médio";"Rede privada";"Negra";0,753890052884377;0,148279630892647
+"357";"Amazonas";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"358";"Amazonas";"Regular do ensino médio";"Rede pública";"Branca";0,167851722528095;0,0330820534243602
+"359";"Amazonas";"Regular do ensino médio";"Rede pública";"Negra";0,832148277471905;0,0330820534243602
+"360";"Amazonas";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"361";"Roraima";"Regular do ensino médio";"Rede privada";"Branca";0,58074912108634;0,340192724499917
+"362";"Roraima";"Regular do ensino médio";"Rede privada";"Negra";0,41925087891366;0,340192724499917
+"363";"Roraima";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"364";"Roraima";"Regular do ensino médio";"Rede pública";"Branca";0,157838533826375;0,0564258117966644
+"365";"Roraima";"Regular do ensino médio";"Rede pública";"Negra";0,782790760280671;0,0647225646021233
+"366";"Roraima";"Regular do ensino médio";"Rede pública";"Outros";0,0593707058929536;0,0362920117539755
+"367";"Pará";"Regular do ensino médio";"Rede privada";"Branca";0,299333375575084;0,133798599245923
+"368";"Pará";"Regular do ensino médio";"Rede privada";"Negra";0,700666624424916;0,133798599245923
+"369";"Pará";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"370";"Pará";"Regular do ensino médio";"Rede pública";"Branca";0,185817295022143;0,0356431087301126
+"371";"Pará";"Regular do ensino médio";"Rede pública";"Negra";0,783683925282991;0,03992991801166
+"372";"Pará";"Regular do ensino médio";"Rede pública";"Outros";0,0304987796948665;0,0178177576041969
+"373";"Amapá";"Regular do ensino médio";"Rede privada";"Branca";0;0
+"374";"Amapá";"Regular do ensino médio";"Rede privada";"Negra";1;0
+"375";"Amapá";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"376";"Amapá";"Regular do ensino médio";"Rede pública";"Branca";0,225595026737038;0,0613448444169805
+"377";"Amapá";"Regular do ensino médio";"Rede pública";"Negra";0,774404973262962;0,0613448444169805
+"378";"Amapá";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"379";"Tocantins";"Regular do ensino médio";"Rede privada";"Branca";0,442503012695042;0,2375766519462
+"380";"Tocantins";"Regular do ensino médio";"Rede privada";"Negra";0,557496987304958;0,2375766519462
+"381";"Tocantins";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"382";"Tocantins";"Regular do ensino médio";"Rede pública";"Branca";0,153910084351185;0,0408034889317394
+"383";"Tocantins";"Regular do ensino médio";"Rede pública";"Negra";0,846089915648815;0,0408034889317394
+"384";"Tocantins";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"385";"Maranhão";"Regular do ensino médio";"Rede privada";"Branca";0,5144658360832;0,122317306989004
+"386";"Maranhão";"Regular do ensino médio";"Rede privada";"Negra";0,4855341639168;0,122317306989004
+"387";"Maranhão";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"388";"Maranhão";"Regular do ensino médio";"Rede pública";"Branca";0,192575627235802;0,0239929706274893
+"389";"Maranhão";"Regular do ensino médio";"Rede pública";"Negra";0,806556903271662;0,0240664138008159
+"390";"Maranhão";"Regular do ensino médio";"Rede pública";"Outros";0,000867469492535924;0,000935865643824053
+"391";"Piauí";"Regular do ensino médio";"Rede privada";"Branca";0,448921339468138;0,133586094993517
+"392";"Piauí";"Regular do ensino médio";"Rede privada";"Negra";0,551078660531862;0,133586094993517
+"393";"Piauí";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"394";"Piauí";"Regular do ensino médio";"Rede pública";"Branca";0,101258605942678;0,0316642482849493
+"395";"Piauí";"Regular do ensino médio";"Rede pública";"Negra";0,898741394057322;0,0316642482849493
+"396";"Piauí";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"397";"Ceará";"Regular do ensino médio";"Rede privada";"Branca";0,53398435902874;0,142631442852805
+"398";"Ceará";"Regular do ensino médio";"Rede privada";"Negra";0,46601564097126;0,142631442852805
+"399";"Ceará";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"400";"Ceará";"Regular do ensino médio";"Rede pública";"Branca";0,281363975281532;0,0334289704576799
+"401";"Ceará";"Regular do ensino médio";"Rede pública";"Negra";0,707863854144459;0,0336831861667037
+"402";"Ceará";"Regular do ensino médio";"Rede pública";"Outros";0,0107721705740096;0,00635973895138398
+"403";"Rio Grande do Norte";"Regular do ensino médio";"Rede privada";"Branca";0,380260043831604;0,128625449210651
+"404";"Rio Grande do Norte";"Regular do ensino médio";"Rede privada";"Negra";0,619739956168396;0,128625449210651
+"405";"Rio Grande do Norte";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"406";"Rio Grande do Norte";"Regular do ensino médio";"Rede pública";"Branca";0,375408729438827;0,0482858657984636
+"407";"Rio Grande do Norte";"Regular do ensino médio";"Rede pública";"Negra";0,624591270561173;0,0482858657984636
+"408";"Rio Grande do Norte";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"409";"Paraíba";"Regular do ensino médio";"Rede privada";"Branca";0,289707554806579;0,111649439875301
+"410";"Paraíba";"Regular do ensino médio";"Rede privada";"Negra";0,710292445193421;0,111649439875301
+"411";"Paraíba";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"412";"Paraíba";"Regular do ensino médio";"Rede pública";"Branca";0,270190671763736;0,0587172716880601
+"413";"Paraíba";"Regular do ensino médio";"Rede pública";"Negra";0,729809328236264;0,0587172716880601
+"414";"Paraíba";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"415";"Pernambuco";"Regular do ensino médio";"Rede privada";"Branca";0,452919247167057;0,117562444931567
+"416";"Pernambuco";"Regular do ensino médio";"Rede privada";"Negra";0,547080752832943;0,117562444931567
+"417";"Pernambuco";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"418";"Pernambuco";"Regular do ensino médio";"Rede pública";"Branca";0,27808693154345;0,0380845925349422
+"419";"Pernambuco";"Regular do ensino médio";"Rede pública";"Negra";0,716271244814118;0,0386952530134812
+"420";"Pernambuco";"Regular do ensino médio";"Rede pública";"Outros";0,00564182364243207;0,00502511065405821
+"421";"Alagoas";"Regular do ensino médio";"Rede privada";"Branca";0,35671837065053;0,0847697407342313
+"422";"Alagoas";"Regular do ensino médio";"Rede privada";"Negra";0,64328162934947;0,0847697407342314
+"423";"Alagoas";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"424";"Alagoas";"Regular do ensino médio";"Rede pública";"Branca";0,193483806364579;0,0324259275092664
+"425";"Alagoas";"Regular do ensino médio";"Rede pública";"Negra";0,806516193635421;0,0324259275092664
+"426";"Alagoas";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"427";"Sergipe";"Regular do ensino médio";"Rede privada";"Branca";0,332784215695381;0,180177526569406
+"428";"Sergipe";"Regular do ensino médio";"Rede privada";"Negra";0,667215784304619;0,180177526569406
+"429";"Sergipe";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"430";"Sergipe";"Regular do ensino médio";"Rede pública";"Branca";0,244489911364651;0,0483359211109133
+"431";"Sergipe";"Regular do ensino médio";"Rede pública";"Negra";0,749312874903291;0,0485239656066016
+"432";"Sergipe";"Regular do ensino médio";"Rede pública";"Outros";0,0061972137320582;0,00618772122600278
+"433";"Bahia";"Regular do ensino médio";"Rede privada";"Branca";0,203628671660178;0,152001665013737
+"434";"Bahia";"Regular do ensino médio";"Rede privada";"Negra";0,796371328339822;0,152001665013737
+"435";"Bahia";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"436";"Bahia";"Regular do ensino médio";"Rede pública";"Branca";0,187237184664443;0,0319061566143786
+"437";"Bahia";"Regular do ensino médio";"Rede pública";"Negra";0,812762815335557;0,0319061566143786
+"438";"Bahia";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"439";"Minas Gerais";"Regular do ensino médio";"Rede privada";"Branca";0,522740570179646;0,0854095807701051
+"440";"Minas Gerais";"Regular do ensino médio";"Rede privada";"Negra";0,477259429820354;0,0854095807701051
+"441";"Minas Gerais";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"442";"Minas Gerais";"Regular do ensino médio";"Rede pública";"Branca";0,357180182746295;0,0300617215146787
+"443";"Minas Gerais";"Regular do ensino médio";"Rede pública";"Negra";0,637352037666638;0,0290214292110301
+"444";"Minas Gerais";"Regular do ensino médio";"Rede pública";"Outros";0,00546777958706705;0,00435713935983507
+"445";"Espírito Santo";"Regular do ensino médio";"Rede privada";"Branca";0,651462660080754;0,116477069334635
+"446";"Espírito Santo";"Regular do ensino médio";"Rede privada";"Negra";0,348537339919246;0,116477069334635
+"447";"Espírito Santo";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"448";"Espírito Santo";"Regular do ensino médio";"Rede pública";"Branca";0,348837800838374;0,0564772992445805
+"449";"Espírito Santo";"Regular do ensino médio";"Rede pública";"Negra";0,651162199161626;0,0564772992445805
+"450";"Espírito Santo";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"451";"Rio de Janeiro";"Regular do ensino médio";"Rede privada";"Branca";0,752023637187778;0,0644110176018207
+"452";"Rio de Janeiro";"Regular do ensino médio";"Rede privada";"Negra";0,247976362812222;0,0644110176018207
+"453";"Rio de Janeiro";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"454";"Rio de Janeiro";"Regular do ensino médio";"Rede pública";"Branca";0,356950837515438;0,0372346490041576
+"455";"Rio de Janeiro";"Regular do ensino médio";"Rede pública";"Negra";0,643049162484562;0,0372346490041576
+"456";"Rio de Janeiro";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"457";"São Paulo";"Regular do ensino médio";"Rede privada";"Branca";0,812780409911063;0,060738088344752
+"458";"São Paulo";"Regular do ensino médio";"Rede privada";"Negra";0,175234753778124;0,060123702516941
+"459";"São Paulo";"Regular do ensino médio";"Rede privada";"Outros";0,0119848363108122;0,0117307439297761
+"460";"São Paulo";"Regular do ensino médio";"Rede pública";"Branca";0,593683476328563;0,0348769360951108
+"461";"São Paulo";"Regular do ensino médio";"Rede pública";"Negra";0,402277832039048;0,0344482878417052
+"462";"São Paulo";"Regular do ensino médio";"Rede pública";"Outros";0,00403869163238944;0,00431425690450763
+"463";"Paraná";"Regular do ensino médio";"Rede privada";"Branca";0,886794485919565;0,0551304665759798
+"464";"Paraná";"Regular do ensino médio";"Rede privada";"Negra";0,0823959284874712;0,0508966858757347
+"465";"Paraná";"Regular do ensino médio";"Rede privada";"Outros";0,0308095855929634;0,0301299438240455
+"466";"Paraná";"Regular do ensino médio";"Rede pública";"Branca";0,688621825957131;0,0394814710386951
+"467";"Paraná";"Regular do ensino médio";"Rede pública";"Negra";0,304387813210519;0,0392743632375619
+"468";"Paraná";"Regular do ensino médio";"Rede pública";"Outros";0,00699036083234926;0,00723782627228339
+"469";"Santa Catarina";"Regular do ensino médio";"Rede privada";"Branca";0,961305356770441;0,0411364033010325
+"470";"Santa Catarina";"Regular do ensino médio";"Rede privada";"Negra";0,0386946432295585;0,0411364033010325
+"471";"Santa Catarina";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"472";"Santa Catarina";"Regular do ensino médio";"Rede pública";"Branca";0,836627396853227;0,0269231149450741
+"473";"Santa Catarina";"Regular do ensino médio";"Rede pública";"Negra";0,163372603146773;0,0269231149450741
+"474";"Santa Catarina";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"475";"Rio Grande do Sul";"Regular do ensino médio";"Rede privada";"Branca";0,867868795235024;0,0710164611174383
+"476";"Rio Grande do Sul";"Regular do ensino médio";"Rede privada";"Negra";0,132131204764976;0,0710164611174383
+"477";"Rio Grande do Sul";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"478";"Rio Grande do Sul";"Regular do ensino médio";"Rede pública";"Branca";0,739759460171296;0,0420730889572225
+"479";"Rio Grande do Sul";"Regular do ensino médio";"Rede pública";"Negra";0,260240539828704;0,0420730889572225
+"480";"Rio Grande do Sul";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"481";"Mato Grosso do Sul";"Regular do ensino médio";"Rede privada";"Branca";0,0989466852521076;0,20761046803765
+"482";"Mato Grosso do Sul";"Regular do ensino médio";"Rede privada";"Negra";0,901053314747892;0,20761046803765
+"483";"Mato Grosso do Sul";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"484";"Mato Grosso do Sul";"Regular do ensino médio";"Rede pública";"Branca";0,328561052867884;0,0664816070826759
+"485";"Mato Grosso do Sul";"Regular do ensino médio";"Rede pública";"Negra";0,671438947132116;0,0664816070826759
+"486";"Mato Grosso do Sul";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"487";"Mato Grosso";"Regular do ensino médio";"Rede privada";"Branca";0,299378549253888;0,191413252147397
+"488";"Mato Grosso";"Regular do ensino médio";"Rede privada";"Negra";0,700621450746112;0,191413252147397
+"489";"Mato Grosso";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"490";"Mato Grosso";"Regular do ensino médio";"Rede pública";"Branca";0,278875258475192;0,0450444838449437
+"491";"Mato Grosso";"Regular do ensino médio";"Rede pública";"Negra";0,704868138720075;0,0488819480579655
+"492";"Mato Grosso";"Regular do ensino médio";"Rede pública";"Outros";0,0162566028047328;0,011885992864763
+"493";"Goiás";"Regular do ensino médio";"Rede privada";"Branca";0,548673539836666;0,145062901488034
+"494";"Goiás";"Regular do ensino médio";"Rede privada";"Negra";0,451326460163334;0,145062901488034
+"495";"Goiás";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"496";"Goiás";"Regular do ensino médio";"Rede pública";"Branca";0,31069266487668;0,0620104642017925
+"497";"Goiás";"Regular do ensino médio";"Rede pública";"Negra";0,68930733512332;0,0620104642017925
+"498";"Goiás";"Regular do ensino médio";"Rede pública";"Outros";0;0
+"499";"Distrito Federal";"Regular do ensino médio";"Rede privada";"Branca";0,575022725961676;0,131998128955788
+"500";"Distrito Federal";"Regular do ensino médio";"Rede privada";"Negra";0,424977274038324;0,131998128955788
+"501";"Distrito Federal";"Regular do ensino médio";"Rede privada";"Outros";0;0
+"502";"Distrito Federal";"Regular do ensino médio";"Rede pública";"Branca";0,230361634231672;0,0590954350894237
+"503";"Distrito Federal";"Regular do ensino médio";"Rede pública";"Negra";0,769638365768327;0,0590954350894237
+"504";"Distrito Federal";"Regular do ensino médio";"Rede pública";"Outros";0;0

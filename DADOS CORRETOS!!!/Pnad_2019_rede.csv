@@ -1,0 +1,505 @@
+;UF;ETAPA;REDE;COR;taxa_pd;se.pd
+1;Brasil;Pré-escola;Rede privada;Branca;0,564891398;0,018790075
+2;Brasil;Pré-escola;Rede privada;Negra;0,427235045;0,018891004
+3;Brasil;Pré-escola;Rede privada;Outros;0,007873557;0,00426466
+4;Brasil;Pré-escola;Rede pública;Branca;0,373974152;0,009446735
+5;Brasil;Pré-escola;Rede pública;Negra;0,619998637;0,009508538
+6;Brasil;Pré-escola;Rede pública;Outros;0,006027211;0,001069713
+7;Brasil;Regular do ensino fundamental;Rede privada;Branca;0,569313493;0,009018945
+8;Brasil;Regular do ensino fundamental;Rede privada;Negra;0,421213843;0,009068339
+9;Brasil;Regular do ensino fundamental;Rede privada;Outros;0,009472664;0,001389404
+10;Brasil;Regular do ensino fundamental;Rede pública;Branca;0,337387533;0,003957685
+11;Brasil;Regular do ensino fundamental;Rede pública;Negra;0,654575706;0,004011212
+12;Brasil;Regular do ensino fundamental;Rede pública;Outros;0,008036761;0,000727026
+13;Brasil;Regular do ensino médio;Rede privada;Branca;0,619372944;0,014812012
+14;Brasil;Regular do ensino médio;Rede privada;Negra;0,368425851;0,015037965
+15;Brasil;Regular do ensino médio;Rede privada;Outros;0,012201204;0,003904231
+16;Brasil;Regular do ensino médio;Rede pública;Branca;0,353204628;0,005741358
+17;Brasil;Regular do ensino médio;Rede pública;Negra;0,638902365;0,005751763
+18;Brasil;Regular do ensino médio;Rede pública;Outros;0,007893006;0,000999669
+19;Rondônia;Pré-escola;Rede privada;Branca;0;0
+20;Rondônia;Pré-escola;Rede privada;Negra;1;0
+21;Rondônia;Pré-escola;Rede privada;Outros;0;0
+22;Rondônia;Pré-escola;Rede pública;Branca;0,327537145;0,074438251
+23;Rondônia;Pré-escola;Rede pública;Negra;0,664961902;0,074974954
+24;Rondônia;Pré-escola;Rede pública;Outros;0,007500953;0,007984104
+25;Acre;Pré-escola;Rede privada;Branca;0,434096498;0,194742311
+26;Acre;Pré-escola;Rede privada;Negra;0,565903502;0,194742311
+27;Acre;Pré-escola;Rede privada;Outros;0;0
+28;Acre;Pré-escola;Rede pública;Branca;0,120949829;0,029468286
+29;Acre;Pré-escola;Rede pública;Negra;0,867394336;0,031249557
+30;Acre;Pré-escola;Rede pública;Outros;0,011655835;0,011403227
+31;Amazonas;Pré-escola;Rede privada;Branca;0,571830494;0,121316746
+32;Amazonas;Pré-escola;Rede privada;Negra;0,428169506;0,121316746
+33;Amazonas;Pré-escola;Rede privada;Outros;0;0
+34;Amazonas;Pré-escola;Rede pública;Branca;0,184552369;0,026915375
+35;Amazonas;Pré-escola;Rede pública;Negra;0,788981407;0,030509237
+36;Amazonas;Pré-escola;Rede pública;Outros;0,026466224;0,011808052
+37;Roraima;Pré-escola;Rede privada;Branca;0,525170612;0,174165631
+38;Roraima;Pré-escola;Rede privada;Negra;0,474829388;0,174165631
+39;Roraima;Pré-escola;Rede privada;Outros;0;0
+40;Roraima;Pré-escola;Rede pública;Branca;0,158686327;0,043913459
+41;Roraima;Pré-escola;Rede pública;Negra;0,767779363;0,043116188
+42;Roraima;Pré-escola;Rede pública;Outros;0,07353431;0,029609151
+43;Pará;Pré-escola;Rede privada;Branca;0,225018291;0,068395688
+44;Pará;Pré-escola;Rede privada;Negra;0,774981709;0,068395688
+45;Pará;Pré-escola;Rede privada;Outros;0;0
+46;Pará;Pré-escola;Rede pública;Branca;0,208574044;0,037209629
+47;Pará;Pré-escola;Rede pública;Negra;0,78710049;0,03710366
+48;Pará;Pré-escola;Rede pública;Outros;0,004325467;0,00328397
+49;Amapá;Pré-escola;Rede privada;Branca;0,451932427;0,207854852
+50;Amapá;Pré-escola;Rede privada;Negra;0,548067573;0,207854852
+51;Amapá;Pré-escola;Rede privada;Outros;0;0
+52;Amapá;Pré-escola;Rede pública;Branca;0,197232242;0,063540247
+53;Amapá;Pré-escola;Rede pública;Negra;0,769518804;0,056261218
+54;Amapá;Pré-escola;Rede pública;Outros;0,033248954;0,029637174
+55;Tocantins;Pré-escola;Rede privada;Branca;0,468791474;0,174084339
+56;Tocantins;Pré-escola;Rede privada;Negra;0,531208526;0,174084339
+57;Tocantins;Pré-escola;Rede privada;Outros;0;0
+58;Tocantins;Pré-escola;Rede pública;Branca;0,178317657;0,052074392
+59;Tocantins;Pré-escola;Rede pública;Negra;0,797707748;0,062335509
+60;Tocantins;Pré-escola;Rede pública;Outros;0,023974595;0,02111769
+61;Maranhão;Pré-escola;Rede privada;Branca;0,316844885;0,069573336
+62;Maranhão;Pré-escola;Rede privada;Negra;0,683155115;0,069573336
+63;Maranhão;Pré-escola;Rede privada;Outros;0;0
+64;Maranhão;Pré-escola;Rede pública;Branca;0,137274587;0,017861898
+65;Maranhão;Pré-escola;Rede pública;Negra;0,849218078;0,018615865
+66;Maranhão;Pré-escola;Rede pública;Outros;0,013507335;0,007401231
+67;Piauí;Pré-escola;Rede privada;Branca;0,36105222;0,109836
+68;Piauí;Pré-escola;Rede privada;Negra;0,63894778;0,109836
+69;Piauí;Pré-escola;Rede privada;Outros;0;0
+70;Piauí;Pré-escola;Rede pública;Branca;0,164905644;0,030919333
+71;Piauí;Pré-escola;Rede pública;Negra;0,827653017;0,033660502
+72;Piauí;Pré-escola;Rede pública;Outros;0,007441339;0,007038585
+73;Ceará;Pré-escola;Rede privada;Branca;0,480878012;0,065447181
+74;Ceará;Pré-escola;Rede privada;Negra;0,519121988;0,065447181
+75;Ceará;Pré-escola;Rede privada;Outros;0;0
+76;Ceará;Pré-escola;Rede pública;Branca;0,229337181;0,031575155
+77;Ceará;Pré-escola;Rede pública;Negra;0,758694675;0,032100207
+78;Ceará;Pré-escola;Rede pública;Outros;0,011968143;0,008601495
+79;Rio Grande do Norte;Pré-escola;Rede privada;Branca;0,476487131;0,137265895
+80;Rio Grande do Norte;Pré-escola;Rede privada;Negra;0,523512869;0,137265895
+81;Rio Grande do Norte;Pré-escola;Rede privada;Outros;0;0
+82;Rio Grande do Norte;Pré-escola;Rede pública;Branca;0,353127142;0,049064623
+83;Rio Grande do Norte;Pré-escola;Rede pública;Negra;0,646872858;0,049064623
+84;Rio Grande do Norte;Pré-escola;Rede pública;Outros;0;0
+85;Paraíba;Pré-escola;Rede privada;Branca;0,447514766;0,07058694
+86;Paraíba;Pré-escola;Rede privada;Negra;0,552485234;0,07058694
+87;Paraíba;Pré-escola;Rede privada;Outros;0;0
+88;Paraíba;Pré-escola;Rede pública;Branca;0,347208037;0,053634466
+89;Paraíba;Pré-escola;Rede pública;Negra;0,648349389;0,053789232
+90;Paraíba;Pré-escola;Rede pública;Outros;0,004442575;0,004427953
+91;Pernambuco;Pré-escola;Rede privada;Branca;0,426988182;0,062702936
+92;Pernambuco;Pré-escola;Rede privada;Negra;0,573011818;0,062702936
+93;Pernambuco;Pré-escola;Rede privada;Outros;0;0
+94;Pernambuco;Pré-escola;Rede pública;Branca;0,266861875;0,040427056
+95;Pernambuco;Pré-escola;Rede pública;Negra;0,715196435;0,042499523
+96;Pernambuco;Pré-escola;Rede pública;Outros;0,01794169;0,013209958
+97;Alagoas;Pré-escola;Rede privada;Branca;0,41647411;0,067125203
+98;Alagoas;Pré-escola;Rede privada;Negra;0,58352589;0,067125203
+99;Alagoas;Pré-escola;Rede privada;Outros;0;0
+100;Alagoas;Pré-escola;Rede pública;Branca;0,22735771;0,0368439
+101;Alagoas;Pré-escola;Rede pública;Negra;0,770246043;0,036675221
+102;Alagoas;Pré-escola;Rede pública;Outros;0,002396247;0,002607442
+103;Sergipe;Pré-escola;Rede privada;Branca;0,333105556;0,087884214
+104;Sergipe;Pré-escola;Rede privada;Negra;0,666894444;0,087884214
+105;Sergipe;Pré-escola;Rede privada;Outros;0;0
+106;Sergipe;Pré-escola;Rede pública;Branca;0,202681802;0,040342243
+107;Sergipe;Pré-escola;Rede pública;Negra;0,797318198;0,040342243
+108;Sergipe;Pré-escola;Rede pública;Outros;0;0
+109;Bahia;Pré-escola;Rede privada;Branca;0,2594624;0,047540298
+110;Bahia;Pré-escola;Rede privada;Negra;0,7405376;0,047540298
+111;Bahia;Pré-escola;Rede privada;Outros;0;0
+112;Bahia;Pré-escola;Rede pública;Branca;0,144271959;0,025625189
+113;Bahia;Pré-escola;Rede pública;Negra;0,845929978;0,025905243
+114;Bahia;Pré-escola;Rede pública;Outros;0,009798063;0,006578969
+115;Minas Gerais;Pré-escola;Rede privada;Branca;0,638547699;0,07174993
+116;Minas Gerais;Pré-escola;Rede privada;Negra;0,361452301;0,07174993
+117;Minas Gerais;Pré-escola;Rede privada;Outros;0;0
+118;Minas Gerais;Pré-escola;Rede pública;Branca;0,311769028;0,030597986
+119;Minas Gerais;Pré-escola;Rede pública;Negra;0,688230972;0,030597986
+120;Minas Gerais;Pré-escola;Rede pública;Outros;0;0
+121;Espírito Santo;Pré-escola;Rede privada;Branca;0,629709196;0,091956266
+122;Espírito Santo;Pré-escola;Rede privada;Negra;0,370290804;0,091956266
+123;Espírito Santo;Pré-escola;Rede privada;Outros;0;0
+124;Espírito Santo;Pré-escola;Rede pública;Branca;0,327846342;0,034113004
+125;Espírito Santo;Pré-escola;Rede pública;Negra;0,667257037;0,034560484
+126;Espírito Santo;Pré-escola;Rede pública;Outros;0,004896621;0,005081048
+127;Rio de Janeiro;Pré-escola;Rede privada;Branca;0,575222879;0,04982724
+128;Rio de Janeiro;Pré-escola;Rede privada;Negra;0,424777121;0,04982724
+129;Rio de Janeiro;Pré-escola;Rede privada;Outros;0;0
+130;Rio de Janeiro;Pré-escola;Rede pública;Branca;0,391935464;0,037493313
+131;Rio de Janeiro;Pré-escola;Rede pública;Negra;0,608064536;0,037493313
+132;Rio de Janeiro;Pré-escola;Rede pública;Outros;0;0
+133;São Paulo;Pré-escola;Rede privada;Branca;0,833282841;0,044605246
+134;São Paulo;Pré-escola;Rede privada;Negra;0,126003603;0,039944653
+135;São Paulo;Pré-escola;Rede privada;Outros;0,040713556;0,02184227
+136;São Paulo;Pré-escola;Rede pública;Branca;0,513729698;0,031707095
+137;São Paulo;Pré-escola;Rede pública;Negra;0,484547682;0,03173522
+138;São Paulo;Pré-escola;Rede pública;Outros;0,00172262;0,001698726
+139;Paraná;Pré-escola;Rede privada;Branca;0,820570056;0,075737411
+140;Paraná;Pré-escola;Rede privada;Negra;0,179429944;0,075737411
+141;Paraná;Pré-escola;Rede privada;Outros;0;0
+142;Paraná;Pré-escola;Rede pública;Branca;0,605930694;0,040112044
+143;Paraná;Pré-escola;Rede pública;Negra;0,387199946;0,039597241
+144;Paraná;Pré-escola;Rede pública;Outros;0,00686936;0,00692081
+145;Santa Catarina;Pré-escola;Rede privada;Branca;0,946419646;0,032513238
+146;Santa Catarina;Pré-escola;Rede privada;Negra;0,053580354;0,032513238
+147;Santa Catarina;Pré-escola;Rede privada;Outros;0;0
+148;Santa Catarina;Pré-escola;Rede pública;Branca;0,767642488;0,023721942
+149;Santa Catarina;Pré-escola;Rede pública;Negra;0,220089909;0,023280999
+150;Santa Catarina;Pré-escola;Rede pública;Outros;0,012267603;0,006860404
+151;Rio Grande do Sul;Pré-escola;Rede privada;Branca;0,759421064;0,083518442
+152;Rio Grande do Sul;Pré-escola;Rede privada;Negra;0,240578936;0,083518442
+153;Rio Grande do Sul;Pré-escola;Rede privada;Outros;0;0
+154;Rio Grande do Sul;Pré-escola;Rede pública;Branca;0,703866155;0,039186806
+155;Rio Grande do Sul;Pré-escola;Rede pública;Negra;0,296133845;0,039186806
+156;Rio Grande do Sul;Pré-escola;Rede pública;Outros;0;0
+157;Mato Grosso do Sul;Pré-escola;Rede privada;Branca;0,694769774;0,126539232
+158;Mato Grosso do Sul;Pré-escola;Rede privada;Negra;0,305230226;0,126539232
+159;Mato Grosso do Sul;Pré-escola;Rede privada;Outros;0;0
+160;Mato Grosso do Sul;Pré-escola;Rede pública;Branca;0,42786734;0,054119044
+161;Mato Grosso do Sul;Pré-escola;Rede pública;Negra;0,565815555;0,053634872
+162;Mato Grosso do Sul;Pré-escola;Rede pública;Outros;0,006317105;0,006054769
+163;Mato Grosso;Pré-escola;Rede privada;Branca;0,758672848;0,123057022
+164;Mato Grosso;Pré-escola;Rede privada;Negra;0,241327152;0,123057022
+165;Mato Grosso;Pré-escola;Rede privada;Outros;0;0
+166;Mato Grosso;Pré-escola;Rede pública;Branca;0,253836828;0,033934103
+167;Mato Grosso;Pré-escola;Rede pública;Negra;0,746163172;0,033934103
+168;Mato Grosso;Pré-escola;Rede pública;Outros;0;0
+169;Goiás;Pré-escola;Rede privada;Branca;0,485642443;0,0867595
+170;Goiás;Pré-escola;Rede privada;Negra;0,514357557;0,0867595
+171;Goiás;Pré-escola;Rede privada;Outros;0;0
+172;Goiás;Pré-escola;Rede pública;Branca;0,383525137;0,047140494
+173;Goiás;Pré-escola;Rede pública;Negra;0,616474863;0,047140494
+174;Goiás;Pré-escola;Rede pública;Outros;0;0
+175;Distrito Federal;Pré-escola;Rede privada;Branca;0,649032273;0,084120368
+176;Distrito Federal;Pré-escola;Rede privada;Negra;0,350967727;0,084120368
+177;Distrito Federal;Pré-escola;Rede privada;Outros;0;0
+178;Distrito Federal;Pré-escola;Rede pública;Branca;0,34651636;0,058851895
+179;Distrito Federal;Pré-escola;Rede pública;Negra;0,638463436;0,058712535
+180;Distrito Federal;Pré-escola;Rede pública;Outros;0,015020204;0,01476245
+181;Rondônia;Regular do ensino fundamental;Rede privada;Branca;0,319991011;0,058030151
+182;Rondônia;Regular do ensino fundamental;Rede privada;Negra;0,665080364;0,059245257
+183;Rondônia;Regular do ensino fundamental;Rede privada;Outros;0,014928624;0,01651526
+184;Rondônia;Regular do ensino fundamental;Rede pública;Branca;0,252978523;0,016231695
+185;Rondônia;Regular do ensino fundamental;Rede pública;Negra;0,741620645;0,015929194
+186;Rondônia;Regular do ensino fundamental;Rede pública;Outros;0,005400833;0,002553872
+187;Acre;Regular do ensino fundamental;Rede privada;Branca;0,420520969;0,064410762
+188;Acre;Regular do ensino fundamental;Rede privada;Negra;0,579479031;0,064410762
+189;Acre;Regular do ensino fundamental;Rede privada;Outros;0;0
+190;Acre;Regular do ensino fundamental;Rede pública;Branca;0,157696605;0,011809252
+191;Acre;Regular do ensino fundamental;Rede pública;Negra;0,831047931;0,011911433
+192;Acre;Regular do ensino fundamental;Rede pública;Outros;0,011255464;0,003324942
+193;Amazonas;Regular do ensino fundamental;Rede privada;Branca;0,319588151;0,043029452
+194;Amazonas;Regular do ensino fundamental;Rede privada;Negra;0,680411849;0,043029452
+195;Amazonas;Regular do ensino fundamental;Rede privada;Outros;0;0
+196;Amazonas;Regular do ensino fundamental;Rede pública;Branca;0,113587071;0,011899082
+197;Amazonas;Regular do ensino fundamental;Rede pública;Negra;0,858694143;0,014396487
+198;Amazonas;Regular do ensino fundamental;Rede pública;Outros;0,027718785;0,007543396
+199;Roraima;Regular do ensino fundamental;Rede privada;Branca;0,452120367;0,075915517
+200;Roraima;Regular do ensino fundamental;Rede privada;Negra;0,547879633;0,075915517
+201;Roraima;Regular do ensino fundamental;Rede privada;Outros;0;0
+202;Roraima;Regular do ensino fundamental;Rede pública;Branca;0,140153826;0,015304515
+203;Roraima;Regular do ensino fundamental;Rede pública;Negra;0,747921125;0,026288161
+204;Roraima;Regular do ensino fundamental;Rede pública;Outros;0,111925049;0,025829154
+205;Pará;Regular do ensino fundamental;Rede privada;Branca;0,29585152;0,039651973
+206;Pará;Regular do ensino fundamental;Rede privada;Negra;0,69302909;0,04173538
+207;Pará;Regular do ensino fundamental;Rede privada;Outros;0,01111939;0,008733102
+208;Pará;Regular do ensino fundamental;Rede pública;Branca;0,168592957;0,010588271
+209;Pará;Regular do ensino fundamental;Rede pública;Negra;0,820906187;0,010421641
+210;Pará;Regular do ensino fundamental;Rede pública;Outros;0,010500856;0,002810389
+211;Amapá;Regular do ensino fundamental;Rede privada;Branca;0,336333928;0,082288691
+212;Amapá;Regular do ensino fundamental;Rede privada;Negra;0,663666072;0,082288691
+213;Amapá;Regular do ensino fundamental;Rede privada;Outros;0;0
+214;Amapá;Regular do ensino fundamental;Rede pública;Branca;0,160689365;0,01696913
+215;Amapá;Regular do ensino fundamental;Rede pública;Negra;0,836385945;0,016992499
+216;Amapá;Regular do ensino fundamental;Rede pública;Outros;0,00292469;0,00196588
+217;Tocantins;Regular do ensino fundamental;Rede privada;Branca;0,299801872;0,058400873
+218;Tocantins;Regular do ensino fundamental;Rede privada;Negra;0,679913779;0,059529028
+219;Tocantins;Regular do ensino fundamental;Rede privada;Outros;0,020284349;0,019834026
+220;Tocantins;Regular do ensino fundamental;Rede pública;Branca;0,16294015;0,016724089
+221;Tocantins;Regular do ensino fundamental;Rede pública;Negra;0,823422777;0,017951585
+222;Tocantins;Regular do ensino fundamental;Rede pública;Outros;0,013637074;0,004704318
+223;Maranhão;Regular do ensino fundamental;Rede privada;Branca;0,327045637;0,030103629
+224;Maranhão;Regular do ensino fundamental;Rede privada;Negra;0,665537202;0,029870612
+225;Maranhão;Regular do ensino fundamental;Rede privada;Outros;0,007417161;0,004483247
+226;Maranhão;Regular do ensino fundamental;Rede pública;Branca;0,145875175;0,007924116
+227;Maranhão;Regular do ensino fundamental;Rede pública;Negra;0,844243088;0,008127732
+228;Maranhão;Regular do ensino fundamental;Rede pública;Outros;0,009881738;0,001959593
+229;Piauí;Regular do ensino fundamental;Rede privada;Branca;0,283288202;0,040856446
+230;Piauí;Regular do ensino fundamental;Rede privada;Negra;0,716711798;0,040856446
+231;Piauí;Regular do ensino fundamental;Rede privada;Outros;0;0
+232;Piauí;Regular do ensino fundamental;Rede pública;Branca;0,176203899;0,019194577
+233;Piauí;Regular do ensino fundamental;Rede pública;Negra;0,821650827;0,019256439
+234;Piauí;Regular do ensino fundamental;Rede pública;Outros;0,002145273;0,001013809
+235;Ceará;Regular do ensino fundamental;Rede privada;Branca;0,395409399;0,026551883
+236;Ceará;Regular do ensino fundamental;Rede privada;Negra;0,601119132;0,026582952
+237;Ceará;Regular do ensino fundamental;Rede privada;Outros;0,003471469;0,002607989
+238;Ceará;Regular do ensino fundamental;Rede pública;Branca;0,21833185;0,009802228
+239;Ceará;Regular do ensino fundamental;Rede pública;Negra;0,773585026;0,009972706
+240;Ceará;Regular do ensino fundamental;Rede pública;Outros;0,008083124;0,002760282
+241;Rio Grande do Norte;Regular do ensino fundamental;Rede privada;Branca;0,598214769;0,051041503
+242;Rio Grande do Norte;Regular do ensino fundamental;Rede privada;Negra;0,401785231;0,051041503
+243;Rio Grande do Norte;Regular do ensino fundamental;Rede privada;Outros;0;0
+244;Rio Grande do Norte;Regular do ensino fundamental;Rede pública;Branca;0,355618304;0,015915766
+245;Rio Grande do Norte;Regular do ensino fundamental;Rede pública;Negra;0,642750582;0,015764932
+246;Rio Grande do Norte;Regular do ensino fundamental;Rede pública;Outros;0,001631114;0,000997245
+247;Paraíba;Regular do ensino fundamental;Rede privada;Branca;0,456800701;0,034135255
+248;Paraíba;Regular do ensino fundamental;Rede privada;Negra;0,5406436;0,034500976
+249;Paraíba;Regular do ensino fundamental;Rede privada;Outros;0,002555699;0,002622758
+250;Paraíba;Regular do ensino fundamental;Rede pública;Branca;0,288933897;0,019238125
+251;Paraíba;Regular do ensino fundamental;Rede pública;Negra;0,710699172;0,019274572
+252;Paraíba;Regular do ensino fundamental;Rede pública;Outros;0,000366932;0,000335862
+253;Pernambuco;Regular do ensino fundamental;Rede privada;Branca;0,432605922;0,028760099
+254;Pernambuco;Regular do ensino fundamental;Rede privada;Negra;0,547344713;0,030890628
+255;Pernambuco;Regular do ensino fundamental;Rede privada;Outros;0,020049365;0,009458527
+256;Pernambuco;Regular do ensino fundamental;Rede pública;Branca;0,249984527;0,01651183
+257;Pernambuco;Regular do ensino fundamental;Rede pública;Negra;0,736909937;0,016649105
+258;Pernambuco;Regular do ensino fundamental;Rede pública;Outros;0,013105536;0,007601271
+259;Alagoas;Regular do ensino fundamental;Rede privada;Branca;0,322715622;0,031530539
+260;Alagoas;Regular do ensino fundamental;Rede privada;Negra;0,67328535;0,031655273
+261;Alagoas;Regular do ensino fundamental;Rede privada;Outros;0,003999028;0,002826915
+262;Alagoas;Regular do ensino fundamental;Rede pública;Branca;0,232003148;0,010582683
+263;Alagoas;Regular do ensino fundamental;Rede pública;Negra;0,760137858;0,010871136
+264;Alagoas;Regular do ensino fundamental;Rede pública;Outros;0,007858994;0,003217061
+265;Sergipe;Regular do ensino fundamental;Rede privada;Branca;0,249761068;0,035641747
+266;Sergipe;Regular do ensino fundamental;Rede privada;Negra;0,743804006;0,03691523
+267;Sergipe;Regular do ensino fundamental;Rede privada;Outros;0,006434925;0,00618036
+268;Sergipe;Regular do ensino fundamental;Rede pública;Branca;0,170208566;0,013354867
+269;Sergipe;Regular do ensino fundamental;Rede pública;Negra;0,824471029;0,0133632
+270;Sergipe;Regular do ensino fundamental;Rede pública;Outros;0,005320405;0,002153073
+271;Bahia;Regular do ensino fundamental;Rede privada;Branca;0,202788282;0,022960143
+272;Bahia;Regular do ensino fundamental;Rede privada;Negra;0,784087914;0,023353942
+273;Bahia;Regular do ensino fundamental;Rede privada;Outros;0,013123805;0,005427269
+274;Bahia;Regular do ensino fundamental;Rede pública;Branca;0,156637556;0,008909161
+275;Bahia;Regular do ensino fundamental;Rede pública;Negra;0,830157463;0,009178417
+276;Bahia;Regular do ensino fundamental;Rede pública;Outros;0,013204981;0,004274618
+277;Minas Gerais;Regular do ensino fundamental;Rede privada;Branca;0,587977295;0,033918784
+278;Minas Gerais;Regular do ensino fundamental;Rede privada;Negra;0,408520472;0,033914294
+279;Minas Gerais;Regular do ensino fundamental;Rede privada;Outros;0,003502233;0,003752211
+280;Minas Gerais;Regular do ensino fundamental;Rede pública;Branca;0,308745947;0,011847674
+281;Minas Gerais;Regular do ensino fundamental;Rede pública;Negra;0,690102137;0,01185722
+282;Minas Gerais;Regular do ensino fundamental;Rede pública;Outros;0,001151916;0,000640549
+283;Espírito Santo;Regular do ensino fundamental;Rede privada;Branca;0,577868987;0,032080328
+284;Espírito Santo;Regular do ensino fundamental;Rede privada;Negra;0,419105871;0,03215405
+285;Espírito Santo;Regular do ensino fundamental;Rede privada;Outros;0,003025143;0,003143531
+286;Espírito Santo;Regular do ensino fundamental;Rede pública;Branca;0,295489585;0,014561745
+287;Espírito Santo;Regular do ensino fundamental;Rede pública;Negra;0,700284422;0,01465347
+288;Espírito Santo;Regular do ensino fundamental;Rede pública;Outros;0,004225993;0,001744326
+289;Rio de Janeiro;Regular do ensino fundamental;Rede privada;Branca;0,555463289;0,021271564
+290;Rio de Janeiro;Regular do ensino fundamental;Rede privada;Negra;0,439796009;0,021049174
+291;Rio de Janeiro;Regular do ensino fundamental;Rede privada;Outros;0,004740702;0,002469765
+292;Rio de Janeiro;Regular do ensino fundamental;Rede pública;Branca;0,30211101;0,012214381
+293;Rio de Janeiro;Regular do ensino fundamental;Rede pública;Negra;0,695261388;0,012303173
+294;Rio de Janeiro;Regular do ensino fundamental;Rede pública;Outros;0,002627602;0,0008421
+295;São Paulo;Regular do ensino fundamental;Rede privada;Branca;0,819307887;0,017196104
+296;São Paulo;Regular do ensino fundamental;Rede privada;Negra;0,167661965;0,01677981
+297;São Paulo;Regular do ensino fundamental;Rede privada;Outros;0,013030148;0,003461678
+298;São Paulo;Regular do ensino fundamental;Rede pública;Branca;0,481469887;0,015214851
+299;São Paulo;Regular do ensino fundamental;Rede pública;Negra;0,510726031;0,015346318
+300;São Paulo;Regular do ensino fundamental;Rede pública;Outros;0,007804081;0,001904973
+301;Paraná;Regular do ensino fundamental;Rede privada;Branca;0,802855225;0,025625909
+302;Paraná;Regular do ensino fundamental;Rede privada;Negra;0,17243132;0,023599745
+303;Paraná;Regular do ensino fundamental;Rede privada;Outros;0,024713455;0,009727263
+304;Paraná;Regular do ensino fundamental;Rede pública;Branca;0,583572443;0,016106367
+305;Paraná;Regular do ensino fundamental;Rede pública;Negra;0,408887556;0,016181417
+306;Paraná;Regular do ensino fundamental;Rede pública;Outros;0,007540001;0,002163439
+307;Santa Catarina;Regular do ensino fundamental;Rede privada;Branca;0,874614624;0,023253026
+308;Santa Catarina;Regular do ensino fundamental;Rede privada;Negra;0,120214327;0,022715934
+309;Santa Catarina;Regular do ensino fundamental;Rede privada;Outros;0,00517105;0,003880798
+310;Santa Catarina;Regular do ensino fundamental;Rede pública;Branca;0,729199215;0,01160673
+311;Santa Catarina;Regular do ensino fundamental;Rede pública;Negra;0,262233778;0,011462393
+312;Santa Catarina;Regular do ensino fundamental;Rede pública;Outros;0,008567007;0,002303046
+313;Rio Grande do Sul;Regular do ensino fundamental;Rede privada;Branca;0,891261088;0,019599873
+314;Rio Grande do Sul;Regular do ensino fundamental;Rede privada;Negra;0,105407607;0,019593083
+315;Rio Grande do Sul;Regular do ensino fundamental;Rede privada;Outros;0,003331305;0,002230966
+316;Rio Grande do Sul;Regular do ensino fundamental;Rede pública;Branca;0,715641877;0,015715247
+317;Rio Grande do Sul;Regular do ensino fundamental;Rede pública;Negra;0,282207678;0,015565525
+318;Rio Grande do Sul;Regular do ensino fundamental;Rede pública;Outros;0,002150445;0,000999863
+319;Mato Grosso do Sul;Regular do ensino fundamental;Rede privada;Branca;0,683787557;0,040317704
+320;Mato Grosso do Sul;Regular do ensino fundamental;Rede privada;Negra;0,312468967;0,040167383
+321;Mato Grosso do Sul;Regular do ensino fundamental;Rede privada;Outros;0,003743476;0,00369049
+322;Mato Grosso do Sul;Regular do ensino fundamental;Rede pública;Branca;0,409426917;0,019812145
+323;Mato Grosso do Sul;Regular do ensino fundamental;Rede pública;Negra;0,574435554;0,019442515
+324;Mato Grosso do Sul;Regular do ensino fundamental;Rede pública;Outros;0,016137529;0,006059326
+325;Mato Grosso;Regular do ensino fundamental;Rede privada;Branca;0,466813504;0,049048153
+326;Mato Grosso;Regular do ensino fundamental;Rede privada;Negra;0,519541009;0,049153781
+327;Mato Grosso;Regular do ensino fundamental;Rede privada;Outros;0,013645487;0,010418144
+328;Mato Grosso;Regular do ensino fundamental;Rede pública;Branca;0,213016955;0,013647688
+329;Mato Grosso;Regular do ensino fundamental;Rede pública;Negra;0,778205709;0,01371822
+330;Mato Grosso;Regular do ensino fundamental;Rede pública;Outros;0,008777336;0,005000823
+331;Goiás;Regular do ensino fundamental;Rede privada;Branca;0,466890227;0,037395761
+332;Goiás;Regular do ensino fundamental;Rede privada;Negra;0,523904807;0,037057058
+333;Goiás;Regular do ensino fundamental;Rede privada;Outros;0,009204967;0,006441423
+334;Goiás;Regular do ensino fundamental;Rede pública;Branca;0,276984892;0,011992198
+335;Goiás;Regular do ensino fundamental;Rede pública;Negra;0,718670153;0,011948094
+336;Goiás;Regular do ensino fundamental;Rede pública;Outros;0,004344956;0,002106631
+337;Distrito Federal;Regular do ensino fundamental;Rede privada;Branca;0,550232274;0,03724129
+338;Distrito Federal;Regular do ensino fundamental;Rede privada;Negra;0,44284552;0,037541994
+339;Distrito Federal;Regular do ensino fundamental;Rede privada;Outros;0,006922206;0,005938784
+340;Distrito Federal;Regular do ensino fundamental;Rede pública;Branca;0,318030626;0,021298769
+341;Distrito Federal;Regular do ensino fundamental;Rede pública;Negra;0,676070215;0,021782605
+342;Distrito Federal;Regular do ensino fundamental;Rede pública;Outros;0,00589916;0,003428248
+343;Rondônia;Regular do ensino médio;Rede privada;Branca;0,542871931;0,168151376
+344;Rondônia;Regular do ensino médio;Rede privada;Negra;0,457128069;0,168151376
+345;Rondônia;Regular do ensino médio;Rede privada;Outros;0;0
+346;Rondônia;Regular do ensino médio;Rede pública;Branca;0,231584626;0,034892864
+347;Rondônia;Regular do ensino médio;Rede pública;Negra;0,76125513;0,035419989
+348;Rondônia;Regular do ensino médio;Rede pública;Outros;0,007160244;0,004494213
+349;Acre;Regular do ensino médio;Rede privada;Branca;0,358456821;0,107231651
+350;Acre;Regular do ensino médio;Rede privada;Negra;0,641543179;0,107231651
+351;Acre;Regular do ensino médio;Rede privada;Outros;0;0
+352;Acre;Regular do ensino médio;Rede pública;Branca;0,185439469;0,023657242
+353;Acre;Regular do ensino médio;Rede pública;Negra;0,803095012;0,02237215
+354;Acre;Regular do ensino médio;Rede pública;Outros;0,011465519;0,006166378
+355;Amazonas;Regular do ensino médio;Rede privada;Branca;0,325733128;0,124252331
+356;Amazonas;Regular do ensino médio;Rede privada;Negra;0,648709785;0,125931495
+357;Amazonas;Regular do ensino médio;Rede privada;Outros;0,025557087;0,025811577
+358;Amazonas;Regular do ensino médio;Rede pública;Branca;0,16691402;0,017373216
+359;Amazonas;Regular do ensino médio;Rede pública;Negra;0,816145059;0,018472762
+360;Amazonas;Regular do ensino médio;Rede pública;Outros;0,016940921;0,00537698
+361;Roraima;Regular do ensino médio;Rede privada;Branca;0,554780248;0,124721669
+362;Roraima;Regular do ensino médio;Rede privada;Negra;0,445219752;0,124721669
+363;Roraima;Regular do ensino médio;Rede privada;Outros;0;0
+364;Roraima;Regular do ensino médio;Rede pública;Branca;0,178572321;0,030040527
+365;Roraima;Regular do ensino médio;Rede pública;Negra;0,7542753;0,034385758
+366;Roraima;Regular do ensino médio;Rede pública;Outros;0,067152379;0,023587074
+367;Pará;Regular do ensino médio;Rede privada;Branca;0,316248705;0,065615638
+368;Pará;Regular do ensino médio;Rede privada;Negra;0,673206613;0,066669136
+369;Pará;Regular do ensino médio;Rede privada;Outros;0,010544682;0,010903061
+370;Pará;Regular do ensino médio;Rede pública;Branca;0,193477246;0,01916557
+371;Pará;Regular do ensino médio;Rede pública;Negra;0,784737964;0,022221168
+372;Pará;Regular do ensino médio;Rede pública;Outros;0,021784791;0,008327515
+373;Amapá;Regular do ensino médio;Rede privada;Branca;0,39857285;0,176914911
+374;Amapá;Regular do ensino médio;Rede privada;Negra;0,60142715;0,176914911
+375;Amapá;Regular do ensino médio;Rede privada;Outros;0;0
+376;Amapá;Regular do ensino médio;Rede pública;Branca;0,196784914;0,032749655
+377;Amapá;Regular do ensino médio;Rede pública;Negra;0,803215086;0,032749655
+378;Amapá;Regular do ensino médio;Rede pública;Outros;0;0
+379;Tocantins;Regular do ensino médio;Rede privada;Branca;0,467760346;0,138647732
+380;Tocantins;Regular do ensino médio;Rede privada;Negra;0,532239654;0,138647732
+381;Tocantins;Regular do ensino médio;Rede privada;Outros;0;0
+382;Tocantins;Regular do ensino médio;Rede pública;Branca;0,15488903;0,028130884
+383;Tocantins;Regular do ensino médio;Rede pública;Negra;0,832057624;0,026680378
+384;Tocantins;Regular do ensino médio;Rede pública;Outros;0,013053346;0,00717299
+385;Maranhão;Regular do ensino médio;Rede privada;Branca;0,250755402;0,053529644
+386;Maranhão;Regular do ensino médio;Rede privada;Negra;0,749244598;0,053529644
+387;Maranhão;Regular do ensino médio;Rede privada;Outros;0;0
+388;Maranhão;Regular do ensino médio;Rede pública;Branca;0,159201974;0,012284012
+389;Maranhão;Regular do ensino médio;Rede pública;Negra;0,837164796;0,012306058
+390;Maranhão;Regular do ensino médio;Rede pública;Outros;0,00363323;0,001520071
+391;Piauí;Regular do ensino médio;Rede privada;Branca;0,316372464;0,067613313
+392;Piauí;Regular do ensino médio;Rede privada;Negra;0,683627536;0,067613313
+393;Piauí;Regular do ensino médio;Rede privada;Outros;0;0
+394;Piauí;Regular do ensino médio;Rede pública;Branca;0,167192973;0,022353988
+395;Piauí;Regular do ensino médio;Rede pública;Negra;0,829978215;0,022279759
+396;Piauí;Regular do ensino médio;Rede pública;Outros;0,002828812;0,002570034
+397;Ceará;Regular do ensino médio;Rede privada;Branca;0,424632061;0,062281525
+398;Ceará;Regular do ensino médio;Rede privada;Negra;0,570137545;0,062235596
+399;Ceará;Regular do ensino médio;Rede privada;Outros;0,005230394;0,005023419
+400;Ceará;Regular do ensino médio;Rede pública;Branca;0,271167816;0,018618097
+401;Ceará;Regular do ensino médio;Rede pública;Negra;0,723839152;0,018996939
+402;Ceará;Regular do ensino médio;Rede pública;Outros;0,004993032;0,002784868
+403;Rio Grande do Norte;Regular do ensino médio;Rede privada;Branca;0,435747574;0,095061445
+404;Rio Grande do Norte;Regular do ensino médio;Rede privada;Negra;0,564252426;0,095061445
+405;Rio Grande do Norte;Regular do ensino médio;Rede privada;Outros;0;0
+406;Rio Grande do Norte;Regular do ensino médio;Rede pública;Branca;0,408908191;0,033978596
+407;Rio Grande do Norte;Regular do ensino médio;Rede pública;Negra;0,584970364;0,034314185
+408;Rio Grande do Norte;Regular do ensino médio;Rede pública;Outros;0,006121445;0,005503103
+409;Paraíba;Regular do ensino médio;Rede privada;Branca;0,492171387;0,063559173
+410;Paraíba;Regular do ensino médio;Rede privada;Negra;0,507828613;0,063559173
+411;Paraíba;Regular do ensino médio;Rede privada;Outros;0;0
+412;Paraíba;Regular do ensino médio;Rede pública;Branca;0,279658973;0,030751877
+413;Paraíba;Regular do ensino médio;Rede pública;Negra;0,720341027;0,030751877
+414;Paraíba;Regular do ensino médio;Rede pública;Outros;0;0
+415;Pernambuco;Regular do ensino médio;Rede privada;Branca;0,515064743;0,065334256
+416;Pernambuco;Regular do ensino médio;Rede privada;Negra;0,470748424;0,066829317
+417;Pernambuco;Regular do ensino médio;Rede privada;Outros;0,014186834;0,014482737
+418;Pernambuco;Regular do ensino médio;Rede pública;Branca;0,300997136;0,020910312
+419;Pernambuco;Regular do ensino médio;Rede pública;Negra;0,677525459;0,020524089
+420;Pernambuco;Regular do ensino médio;Rede pública;Outros;0,021477406;0,008126353
+421;Alagoas;Regular do ensino médio;Rede privada;Branca;0,451732317;0,071357688
+422;Alagoas;Regular do ensino médio;Rede privada;Negra;0,516487296;0,073323781
+423;Alagoas;Regular do ensino médio;Rede privada;Outros;0,031780387;0,019242617
+424;Alagoas;Regular do ensino médio;Rede pública;Branca;0,22796674;0,016778078
+425;Alagoas;Regular do ensino médio;Rede pública;Negra;0,757963306;0,017649932
+426;Alagoas;Regular do ensino médio;Rede pública;Outros;0,014069954;0,005421151
+427;Sergipe;Regular do ensino médio;Rede privada;Branca;0,223756219;0,061096739
+428;Sergipe;Regular do ensino médio;Rede privada;Negra;0,776243781;0,061096739
+429;Sergipe;Regular do ensino médio;Rede privada;Outros;0;0
+430;Sergipe;Regular do ensino médio;Rede pública;Branca;0,157301929;0,026012441
+431;Sergipe;Regular do ensino médio;Rede pública;Negra;0,829803333;0,024977839
+432;Sergipe;Regular do ensino médio;Rede pública;Outros;0,012894738;0,009646279
+433;Bahia;Regular do ensino médio;Rede privada;Branca;0,193407803;0,063525139
+434;Bahia;Regular do ensino médio;Rede privada;Negra;0,806592197;0,063525139
+435;Bahia;Regular do ensino médio;Rede privada;Outros;0;0
+436;Bahia;Regular do ensino médio;Rede pública;Branca;0,161176626;0,016801983
+437;Bahia;Regular do ensino médio;Rede pública;Negra;0,830708967;0,016397239
+438;Bahia;Regular do ensino médio;Rede pública;Outros;0,008114408;0,00402466
+439;Minas Gerais;Regular do ensino médio;Rede privada;Branca;0,613235143;0,064599959
+440;Minas Gerais;Regular do ensino médio;Rede privada;Negra;0,386764857;0,064599959
+441;Minas Gerais;Regular do ensino médio;Rede privada;Outros;0;0
+442;Minas Gerais;Regular do ensino médio;Rede pública;Branca;0,309727834;0,017235715
+443;Minas Gerais;Regular do ensino médio;Rede pública;Negra;0,688583288;0,017251077
+444;Minas Gerais;Regular do ensino médio;Rede pública;Outros;0,001688878;0,001205808
+445;Espírito Santo;Regular do ensino médio;Rede privada;Branca;0,537060551;0,07418532
+446;Espírito Santo;Regular do ensino médio;Rede privada;Negra;0,441407965;0,073570016
+447;Espírito Santo;Regular do ensino médio;Rede privada;Outros;0,021531484;0,016653941
+448;Espírito Santo;Regular do ensino médio;Rede pública;Branca;0,311294351;0,025642837
+449;Espírito Santo;Regular do ensino médio;Rede pública;Negra;0,685721664;0,025094483
+450;Espírito Santo;Regular do ensino médio;Rede pública;Outros;0,002983984;0,002998291
+451;Rio de Janeiro;Regular do ensino médio;Rede privada;Branca;0,664142782;0,031535162
+452;Rio de Janeiro;Regular do ensino médio;Rede privada;Negra;0,329806277;0,031437136
+453;Rio de Janeiro;Regular do ensino médio;Rede privada;Outros;0,006050941;0,004579633
+454;Rio de Janeiro;Regular do ensino médio;Rede pública;Branca;0,332068647;0,021833497
+455;Rio de Janeiro;Regular do ensino médio;Rede pública;Negra;0,666747246;0,021974859
+456;Rio de Janeiro;Regular do ensino médio;Rede pública;Outros;0,001184107;0,001126774
+457;São Paulo;Regular do ensino médio;Rede privada;Branca;0,778405502;0,035941167
+458;São Paulo;Regular do ensino médio;Rede privada;Negra;0,198497502;0,034867762
+459;São Paulo;Regular do ensino médio;Rede privada;Outros;0,023096995;0,01332806
+460;São Paulo;Regular do ensino médio;Rede pública;Branca;0,493690511;0,019349355
+461;São Paulo;Regular do ensino médio;Rede pública;Negra;0,499800305;0,019606863
+462;São Paulo;Regular do ensino médio;Rede pública;Outros;0,006509184;0,002783128
+463;Paraná;Regular do ensino médio;Rede privada;Branca;0,810018174;0,044961952
+464;Paraná;Regular do ensino médio;Rede privada;Negra;0,163995083;0,04289795
+465;Paraná;Regular do ensino médio;Rede privada;Outros;0,025986742;0,013663564
+466;Paraná;Regular do ensino médio;Rede pública;Branca;0,570294732;0,022363372
+467;Paraná;Regular do ensino médio;Rede pública;Negra;0,420661629;0,022480944
+468;Paraná;Regular do ensino médio;Rede pública;Outros;0,00904364;0,004263075
+469;Santa Catarina;Regular do ensino médio;Rede privada;Branca;0,89586166;0,029400589
+470;Santa Catarina;Regular do ensino médio;Rede privada;Negra;0,10413834;0,029400589
+471;Santa Catarina;Regular do ensino médio;Rede privada;Outros;0;0
+472;Santa Catarina;Regular do ensino médio;Rede pública;Branca;0,783385649;0,018120774
+473;Santa Catarina;Regular do ensino médio;Rede pública;Negra;0,212763633;0,018050298
+474;Santa Catarina;Regular do ensino médio;Rede pública;Outros;0,003850718;0,0023465
+475;Rio Grande do Sul;Regular do ensino médio;Rede privada;Branca;0,921016127;0,029253876
+476;Rio Grande do Sul;Regular do ensino médio;Rede privada;Negra;0,072155138;0,029024783
+477;Rio Grande do Sul;Regular do ensino médio;Rede privada;Outros;0,006828734;0,007667783
+478;Rio Grande do Sul;Regular do ensino médio;Rede pública;Branca;0,729480091;0,020466925
+479;Rio Grande do Sul;Regular do ensino médio;Rede pública;Negra;0,268220669;0,020414702
+480;Rio Grande do Sul;Regular do ensino médio;Rede pública;Outros;0,002299241;0,002414771
+481;Mato Grosso do Sul;Regular do ensino médio;Rede privada;Branca;0,548671814;0,090193599
+482;Mato Grosso do Sul;Regular do ensino médio;Rede privada;Negra;0,349875606;0,093677821
+483;Mato Grosso do Sul;Regular do ensino médio;Rede privada;Outros;0,10145258;0,073558311
+484;Mato Grosso do Sul;Regular do ensino médio;Rede pública;Branca;0,384513445;0,029893603
+485;Mato Grosso do Sul;Regular do ensino médio;Rede pública;Negra;0,606964829;0,030121235
+486;Mato Grosso do Sul;Regular do ensino médio;Rede pública;Outros;0,008521726;0,004963529
+487;Mato Grosso;Regular do ensino médio;Rede privada;Branca;0,263261308;0,091895199
+488;Mato Grosso;Regular do ensino médio;Rede privada;Negra;0,736738692;0,091895199
+489;Mato Grosso;Regular do ensino médio;Rede privada;Outros;0;0
+490;Mato Grosso;Regular do ensino médio;Rede pública;Branca;0,228653149;0,022946503
+491;Mato Grosso;Regular do ensino médio;Rede pública;Negra;0,74922987;0,022650251
+492;Mato Grosso;Regular do ensino médio;Rede pública;Outros;0,022116981;0,0091159
+493;Goiás;Regular do ensino médio;Rede privada;Branca;0,376353907;0,065968627
+494;Goiás;Regular do ensino médio;Rede privada;Negra;0,623646093;0,065968627
+495;Goiás;Regular do ensino médio;Rede privada;Outros;0;0
+496;Goiás;Regular do ensino médio;Rede pública;Branca;0,32027853;0,022277473
+497;Goiás;Regular do ensino médio;Rede pública;Negra;0,66807346;0,022581998
+498;Goiás;Regular do ensino médio;Rede pública;Outros;0,01164801;0,004900224
+499;Distrito Federal;Regular do ensino médio;Rede privada;Branca;0,48041002;0,050844338
+500;Distrito Federal;Regular do ensino médio;Rede privada;Negra;0,51958998;0,050844338
+501;Distrito Federal;Regular do ensino médio;Rede privada;Outros;0;0
+502;Distrito Federal;Regular do ensino médio;Rede pública;Branca;0,356331122;0,041455734
+503;Distrito Federal;Regular do ensino médio;Rede pública;Negra;0,634653185;0,041623845
+504;Distrito Federal;Regular do ensino médio;Rede pública;Outros;0,009015692;0,005989449

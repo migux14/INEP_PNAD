@@ -1,0 +1,179 @@
+---
+title: "tabelas_total"
+author: "Miguel Conforto"
+date: "2022-10-29"
+output: html_document
+---
+
+```{r, message=FALSE}
+library(dplyr)
+library(survey)
+library(ggplot2)
+```
+
+```{r}
+load(fs::path_home("design_pnad_2015_ano.RData"))
+load(fs::path_home("design_pnad_2019_ano.RData"))
+```
+
+```{r}
+UF_interesse <- c("Rondônia","Acre","Amazonas","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Ceará","Rio Grande do Norte","Paraíba","Pernambuco","Alagoas","Sergipe","Bahia","Minas Gerais","Espírito Santo","Rio de Janeiro","São Paulo","Paraná","Santa Catarina","Rio Grande do Sul","Mato Grosso do Sul","Mato Grosso","Goiás","Distrito Federal")
+
+ensino_ <- c("Pré-escola","Regular do ensino fundamental","Regular do ensino médio")
+```
+
+# 2015
+```{r}
+faixas <- cut(design_2015.4$variables$V2009,
+              c(0,14,20,29,50,
+                max(design_2015.4$variables$V2009)))
+
+faixas <- as.data.frame(faixas)
+
+design_2015.4$variables <- bind_cols(design_2015.4$variables,
+                                     faixas)
+```
+
+```{r}
+data_final <- tabela
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+  tabela <- svyby(
+    ~faixas,
+    ~V3003A + V2010 + V2007,
+    design = subset(design_2015.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+    FUN = svytotal,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE
+    )
+  
+  uf <- data.frame(
+    UF = rep(UF_interesse[j], nrow(tabela))
+  )
+  
+  tabela <- bind_cols(uf, tabela)
+  
+  data_final <- bind_rows(data_final, tabela)
+  
+  }
+}
+
+gc()
+
+for (i in 1:length(ensino_)) {
+  tabela <- svyby(
+    ~faixas,
+    ~V3003A + V2010 + V2007,
+    design = subset(design_2015.4, V3003A %in% ensino_[i]),
+    FUN = svytotal,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE
+  )
+  
+  uf <- data.frame(
+    UF = rep("Brasil", nrow(tabela))
+  )
+  
+  tabela <- bind_cols(uf, tabela)
+  
+  data_final <- bind_rows(data_final, tabela)
+}
+
+data_final.2 <- data_final[-(1:6),]
+
+write.csv2(data_final.2, "TOTAL_FaixaET_2015.csv")
+
+gc()
+```
+
+# NÃO RODAR
+```{r}
+data_aux = data.frame(
+    UF = rep(UF_interesse[j],10),
+    ETAPA = rep(ensino_[i],10),
+    REDE = c(rep(tabela[1,1],5),rep(tabela[2,1],5)),
+    FAIXA = rep(
+      c("0 - 14","15 - 20","21 - 29","30 - 50", "51 +"), 2
+      ),
+    taxa_pnad = c(tabela[1,3],tabela[1,4],tabela[1,5],tabela[1,6],tabela[1,7],tabela[2,3],tabela[2,4],tabela[2,5],tabela[2,6],tabela[2,7]),
+    se.pnad = c(tabela[1,8],tabela[1,9],tabela[1,10],tabela[1,11],tabela[1,12],tabela[2,8],tabela[2,9],tabela[2,10],tabela[2,11],tabela[2,12])
+  )
+```
+
+
+# 2019
+```{r}
+faixas <- cut(design_2019.4$variables$V2009,
+              c(0,14,20,29,50,
+                max(design_2019.4$variables$V2009)))
+
+faixas <- as.data.frame(faixas)
+
+design_2019.4$variables <- bind_cols(design_2019.4$variables,
+                                     faixas)
+```
+
+```{r}
+data_final <- tabela
+
+for (i in 1:length(ensino_)) {
+  for (j in 1:length(UF_interesse)) {
+  tabela <- svyby(
+    ~faixas,
+    ~V3003A + V2010 + V2007,
+    design = subset(design_2019.4, UF %in% UF_interesse[j] & V3003A %in% ensino_[i]),
+    FUN = svytotal,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE
+    )
+    
+  uf <- data.frame(
+    UF = rep(UF_interesse[j], nrow(tabela))
+  )
+  
+  tabela <- bind_cols(uf, tabela)
+  
+  data_final <- bind_rows(data_final, tabela)
+  
+  }
+}
+
+gc()
+
+for (i in 1:length(ensino_)) {
+  tabela <- svyby(
+    ~faixas,
+    ~V3003A + V2010 + V2007,
+    design = subset(design_2019.4, V3003A %in% ensino_[i]),
+    FUN = svytotal,
+    na.rm = TRUE,
+    multicore = TRUE,
+    na.rm.by = TRUE,
+    na.rm.all = TRUE,
+    keep.names = FALSE
+    )
+  uf <- data.frame(
+    UF = rep("Brasil", nrow(tabela))
+  )
+  
+  tabela <- bind_cols(uf, tabela)
+  
+  data_final <- bind_rows(data_final, tabela)
+}
+
+data_final.2 <- data_final[-(1:8),]
+
+write.csv2(data_final.2, "TOTAL_FaixaET_2019.csv")
+
+gc()
+```
